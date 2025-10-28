@@ -1,0 +1,3 @@
+GitOps Test - Testing automated deployment pipeline
+Timestamp: $(date)
+Status: Testing GitHub Actions deployment workflow
