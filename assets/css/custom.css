@@ -1,0 +1,161 @@
+/* Custom styling for Isayah Young Burke Knowledge Base */
+
+/* Color Variables */
+:root {
+  --zay-primary: #3b82f6;      /* Blue from your portfolio */
+  --zay-primary-dark: #1d4ed8;
+  --zay-accent: #10b981;       /* Green accent */
+  --zay-dark: #1f2937;         /* Dark gray */
+  --zay-text: #374151;         /* Text gray */
+  --zay-bg: #f8fafc;           /* Light background */
+}
+
+/* Enhanced navbar branding */
+.navbar {
+  background: linear-gradient(135deg, var(--zay-primary) 0%, var(--zay-primary-dark) 100%);
+  border-bottom: 2px solid var(--zay-primary);
+  box-shadow: 0 2px 10px rgba(59, 130, 246, 0.1);
+}
+
+.navbar .site-name {
+  color: white;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.navbar .links .nav-links a {
+  color: rgba(255, 255, 255, 0.9);
+  transition: color 0.2s ease;
+}
+
+.navbar .links .nav-links a:hover,
+.navbar .links .nav-links a.router-link-active {
+  color: white;
+}
+
+/* Sidebar enhancements */
+.sidebar {
+  background: white;
+  border-right: 1px solid #e5e7eb;
+}
+
+.sidebar-heading.clickable.active,
+a.sidebar-link.active {
+  color: var(--zay-primary);
+  border-left-color: var(--zay-primary);
+}
+
+.sidebar-heading.clickable:hover,
+a.sidebar-link:hover {
+  color: var(--zay-primary);
+}
+
+/* Link styling improvements */
+#app .content__default a {
+  color: var(--zay-text);
+  box-shadow: inset 0 -3px 0 -1px var(--zay-primary);
+  transition: all 0.2s ease;
+}
+
+#app .content__default a:hover {
+  color: white;
+  box-shadow: inset 0 -30px 0 -1px var(--zay-primary);
+}
+
+/* Code block improvements */
+#app pre {
+  background: var(--zay-dark);
+  border-radius: 8px;
+  border: 1px solid #374151;
+}
+
+#app code {
+  background: #f1f5f9;
+  color: var(--zay-text);
+  border: 1px solid #e2e8f0;
+}
+
+/* Progress bar */
+#nprogress .bar {
+  background: var(--zay-primary);
+}
+
+#nprogress .peg {
+  box-shadow: 0 0 10px var(--zay-primary), 0 0 5px var(--zay-primary);
+}
+
+/* Search box improvements */
+.search-box input:focus {
+  border-color: var(--zay-primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Custom block improvements */
+.custom-block.tip {
+  background-color: rgba(16, 185, 129, 0.1);
+  border-color: var(--zay-accent);
+}
+
+/* Button styling for any buttons */
+.action-button, 
+button {
+  background: linear-gradient(135deg, var(--zay-primary) 0%, var(--zay-primary-dark) 100%);
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.action-button:hover,
+button:hover {
+  background: linear-gradient(135deg, var(--zay-primary-dark) 0%, #1e40af 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+/* Footer improvements */
+.page-edit {
+  border-top: 1px solid #e5e7eb;
+  background: var(--zay-bg);
+}
+
+/* Responsive improvements */
+@media (max-width: 719px) {
+  .navbar {
+    background: var(--zay-primary);
+  }
+}
+
+/* Typography enhancements */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--zay-dark);
+}
+
+h2 {
+  border-bottom-color: var(--zay-primary);
+}
+
+/* Subtle animation for page transitions */
+.page {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Custom knowledge base branding */
+.theme-default-content h1::before {
+  content: "🧠 ";
+  margin-right: 0.5rem;
+}
+
+/* Add subtle gradient background */
+body {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  min-height: 100vh;
+}
+
+.theme-container {
+  background: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
