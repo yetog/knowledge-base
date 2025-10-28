@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Advanced Techniques (Week 4-5) | Isayah Young Burke</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    
+    <link rel="icon" href="../favicon.ico">
+    <meta name="description" content="Advanced AI techniques including deep reasoning, multimodal applications, and image generation with voice integration.">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+    <div id="app" class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="../index.html" class="home-link router-link-active"><span class="site-name">Isayah Young Burke</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="https://buttondown.email/zaylegend" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Subscribe
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://twitter.com/zaylegend" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Twitter
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Miscellaneous</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a class='sidebar-link' href='../chess.html'>Chess</a></li><li><a class='sidebar-link' href='../climbing.html'>Climbing</a></li><li><a class='sidebar-link' href='../consciousness.html'>Consciousness</a></li><li><a class='sidebar-link' href='../languages.html'>Languages</a></li><li><a class='sidebar-link' href='../mathematics.html'>Mathematics</a></li><li><a class='sidebar-link' href='../meditation.html'>Meditation</a></li><li><a class='sidebar-link' href='../mimetic-theory.html'>Mimetic Theory</a></li><li><a class='sidebar-link' href='../music.html'>Music</a></li><li><a class='sidebar-link' href='../physics.html'>Physics</a></li><li><a class='sidebar-link' href='../public-speaking.html'>Public Speaking</a></li><li><a class='sidebar-link' href='../pyrolysis.html'>Pyrolysis</a></li><li><a class='sidebar-link' href='../relationships.html'>Relationships</a></li><li><a class='sidebar-link' href='../soil.html'>Soil Health</a></li><li><a class='sidebar-link' href='../space.html'>Space</a></li><li><a class='sidebar-link' href='../trees.html'>Trees</a></li><li><a class='sidebar-link' href='../writing.html'>Writing</a></li><li><a class='sidebar-link' href='../zoology.html'>Zoology</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Tech</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a class='sidebar-link' href='../tech/ai-development.html'>AI Development</a></li><li><a class='sidebar-link' href='../tech/development-workflows.html'>Development Workflows</a></li><li><a class='sidebar-link' href='../tech/session-recaps.html'>Session Recaps</a></li><li><a class='sidebar-link' href='../tech/automation-tools.html'>Automation Tools</a></li><li><a class='sidebar-link' href='../tech/awesome-list.html'>Awesome List</a></li><li><a class='sidebar-link' href='../tech/bash-profile.html'>MacOS Bash Profile</a></li><li><a class='sidebar-link' href='../tech/docker.html'>Docker Cheatsheet</a></li><li><a class='sidebar-link' href='../tech/html-cheatsheet.html'>HTML Cheatsheet</a></li><li><a class='sidebar-link' href='../tech/macos-tips.html'>MacOS tips</a></li><li><a class='sidebar-link' href='../tech/mental-models.html'>Mental Models</a></li><li><a class='sidebar-link' href='../tech/postgresql.html'>PostgreSQL cheatsheet</a></li><li><a class='sidebar-link' href='../tech/postgres-data.html'>Loading JSON into Postgres</a></li><li><a class='sidebar-link' href='../tech/regex.html'>Regex Cheatsheet</a></li><li><a class='sidebar-link' href='../tech/secrets-management-sops.html'>Secrets management - SOPS</a></li><li><a class='sidebar-link' href='../tech/seo.html'>SEO Cheatsheet</a></li><li><a class='sidebar-link' href='../tech/today-i-learned.html'>Today I Learned</a></li><li><a class='sidebar-link' href='../tech/vscode-snippets.html'>VSCode Snippets</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Courses</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><section class="sidebar-group depth-1"><p class="sidebar-heading"><span>AI Engineering</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a class='sidebar-link' href='index.html'>Course Overview</a></li><li><a class='sidebar-link' href='syllabus.html'>Full Syllabus</a></li><li><a class='sidebar-link' href='foundations.html'>Foundations (Week 0-1)</a></li><li><a class='sidebar-link' href='core-applications.html'>Core Applications (Week 2-3)</a></li><li><a class='sidebar-link' href='advanced-techniques.html'>Advanced Techniques (Week 4-5)</a></li><li><a class='sidebar-link' href='capstone-advanced.html'>Capstone & Advanced (Week 6-7)</a></li></ul></section></li><li><a class='sidebar-link' href='../courses/mindfulness.html'>Mindfulness Course</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Business</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a class='sidebar-link' href='../business/hiring.html'>Hiring</a></li><li><a class='sidebar-link' href='../business/management.html'>Management</a></li><li><a class='sidebar-link' href='../business/sales.html'>Sales</a></li><li><a class='sidebar-link' href='../business/marketing.html'>Marketing</a></li><li><a class='sidebar-link' href='../business/fundraising.html'>Fundraising</a></li><li><a class='sidebar-link' href='../business/resources.html'>Startup Resources</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Levels</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a class='sidebar-link' href='../levels/business.html'>Business</a></li><li><a class='sidebar-link' href='../levels/life.html'>Life</a></li><li><a class='sidebar-link' href='../levels/leadership.html'>Leadership</a></li><li><a class='sidebar-link' href='../levels/learning.html'>Learning</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Philosophy</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a class='sidebar-link' href='../philosophy/ethics.html'>Ethics</a></li><li><a class='sidebar-link' href='../philosophy/buddhism.html'>Buddhism</a></li><li><a class='sidebar-link' href='../philosophy/stoicism.html'>Stoicism</a></li><li><a class='sidebar-link' href='../philosophy/desire.html'>Desire</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>People</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a class='sidebar-link' href='../people.html'>People</a></li><li><a class='sidebar-link' href='../people/lee-kuan-yew.html'>Lee Kuan Yew</a></li><li><a class='sidebar-link' href='../people/jensen-huang.html'>Jensen Huang</a></li><li><a class='sidebar-link' href='../people/elon-musk.html'>Elon Musk</a></li><li><a class='sidebar-link' href='../people/marlon-brando.html'>Marlon Brando</a></li><li><a class='sidebar-link' href='../people/nelson-mandela.html'>Nelson Mandela</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="advanced-techniques-week-4-5"><a href="#advanced-techniques-week-4-5" class="header-anchor">#</a> Advanced Techniques (Week 4-5)</h1> <h2 id="overview"><a href="#overview" class="header-anchor">#</a> Overview</h2> <p>Weeks 4-5 dive into cutting-edge AI techniques including advanced reasoning systems, long-context processing, multimodal AI, and voice integration. You'll build sophisticated applications that combine multiple AI modalities.</p> <hr> <h2 id="week-4-deep-research-agent"><a href="#week-4-deep-research-agent" class="header-anchor">#</a> Week 4: Deep Research Agent</h2> <h3 id="advanced-reasoning-patterns"><a href="#advanced-reasoning-patterns" class="header-anchor">#</a> Advanced Reasoning Patterns</h3> <p>Move beyond simple prompt-response patterns to implement sophisticated reasoning techniques that break down complex problems systematically.</p> <h4 id="chain-of-thought-cot-reasoning"><a href="#chain-of-thought-cot-reasoning" class="header-anchor">#</a> Chain-of-Thought (CoT) Reasoning</h4> <div class="language-python extra-class"><pre class="language-python"><code><span class="token keyword">class</span> <span class="token class-name">ChainOfThoughtAgent</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">solve_complex_problem</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> problem<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment"># Step 1: Break down the problem</span>
+        decomposition <span class="token operator">=</span> self<span class="token punctuation">.</span>decompose_problem<span class="token punctuation">(</span>problem<span class="token punctuation">)</span>
+        
+        <span class="token comment"># Step 2: Solve each sub-problem with reasoning</span>
+        solutions <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        <span class="token keyword">for</span> subproblem <span class="token keyword">in</span> decomposition<span class="token punctuation">:</span>
+            reasoning_chain <span class="token operator">=</span> self<span class="token punctuation">.</span>think_step_by_step<span class="token punctuation">(</span>subproblem<span class="token punctuation">)</span>
+            solution <span class="token operator">=</span> self<span class="token punctuation">.</span>solve_with_reasoning<span class="token punctuation">(</span>subproblem<span class="token punctuation">,</span> reasoning_chain<span class="token punctuation">)</span>
+            solutions<span class="token punctuation">.</span>append<span class="token punctuation">(</span>solution<span class="token punctuation">)</span>
+        
+        <span class="token comment"># Step 3: Synthesize final answer</span>
+        final_answer <span class="token operator">=</span> self<span class="token punctuation">.</span>synthesize_solutions<span class="token punctuation">(</span>problem<span class="token punctuation">,</span> solutions<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> final_answer
+    
+    <span class="token keyword">def</span> <span class="token function">think_step_by_step</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> subproblem<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        prompt <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f&quot;&quot;&quot;
+        Let's think about this step by step:
+        
+        Problem: </span><span class="token interpolation"><span class="token punctuation">{</span>subproblem<span class="token punctuation">}</span></span><span class="token string">
+        
+        Step 1: What do we know?
+        Step 2: What do we need to find out?
+        Step 3: What's our approach?
+        Step 4: Let's work through it...
+        
+        Reasoning:
+        &quot;&quot;&quot;</span></span>
+        
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>llm<span class="token punctuation">.</span>generate<span class="token punctuation">(</span>prompt<span class="token punctuation">)</span>
+</code></pre></div> <h4 id="tree-of-thoughts-tot-exploration"><a href="#tree-of-thoughts-tot-exploration" class="header-anchor">#</a> Tree-of-Thoughts (ToT) Exploration</h4> <div class="language-python extra-class"><pre class="language-python"><code><span class="token keyword">class</span> <span class="token class-name">TreeOfThoughtsAgent</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">explore_solutions</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> problem<span class="token punctuation">,</span> max_depth<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment"># Generate multiple thought branches</span>
+        initial_thoughts <span class="token operator">=</span> self<span class="token punctuation">.</span>generate_initial_thoughts<span class="token punctuation">(</span>problem<span class="token punctuation">)</span>
+        
+        <span class="token comment"># Explore each branch</span>
+        thought_tree <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+        <span class="token keyword">for</span> thought <span class="token keyword">in</span> initial_thoughts<span class="token punctuation">:</span>
+            branch <span class="token operator">=</span> self<span class="token punctuation">.</span>explore_branch<span class="token punctuation">(</span>thought<span class="token punctuation">,</span> problem<span class="token punctuation">,</span> max_depth<span class="token punctuation">)</span>
+            evaluation <span class="token operator">=</span> self<span class="token punctuation">.</span>evaluate_branch<span class="token punctuation">(</span>branch<span class="token punctuation">,</span> problem<span class="token punctuation">)</span>
+            thought_tree<span class="token punctuation">[</span>thought<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">'branch'</span><span class="token punctuation">:</span> branch<span class="token punctuation">,</span> <span class="token string">'score'</span><span class="token punctuation">:</span> evaluation<span class="token punctuation">}</span>
+        
+        <span class="token comment"># Select best path</span>
+        best_path <span class="token operator">=</span> <span class="token builtin">max</span><span class="token punctuation">(</span>thought_tree<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> key<span class="token operator">=</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span> x<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'score'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> best_path
+    
+    <span class="token keyword">def</span> <span class="token function">generate_initial_thoughts</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> problem<span class="token punctuation">,</span> num_thoughts<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        prompt <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f&quot;&quot;&quot;
+        Generate </span><span class="token interpolation"><span class="token punctuation">{</span>num_thoughts<span class="token punctuation">}</span></span><span class="token string"> different approaches to solve this problem:
+        
+        Problem: </span><span class="token interpolation"><span class="token punctuation">{</span>problem<span class="token punctuation">}</span></span><span class="token string">
+        
+        Approach 1:
+        Approach 2:
+        Approach 3:
+        Approach 4:
+        Approach 5:
+        &quot;&quot;&quot;</span></span>
+        
+        response <span class="token operator">=</span> self<span class="token punctuation">.</span>llm<span class="token punctuation">.</span>generate<span class="token punctuation">(</span>prompt<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>parse_approaches<span class="token punctuation">(</span>response<span class="token punctuation">)</span>
+</code></pre></div> <h4 id="self-consistency-verification"><a href="#self-consistency-verification" class="header-anchor">#</a> Self-Consistency Verification</h4> <div class="language-python extra-class"><pre class="language-python"><code><span class="token keyword">class</span> <span class="token class-name">SelfConsistencyAgent</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">verify_answer</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> problem<span class="token punctuation">,</span> num_samples<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment"># Generate multiple independent solutions</span>
+        solutions <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        <span class="token keyword">for</span> _ <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>num_samples<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            solution <span class="token operator">=</span> self<span class="token punctuation">.</span>solve_independently<span class="token punctuation">(</span>problem<span class="token punctuation">)</span>
+            solutions<span class="token punctuation">.</span>append<span class="token punctuation">(</span>solution<span class="token punctuation">)</span>
+        
+        <span class="token comment"># Find consensus or identify conflicts</span>
+        consensus <span class="token operator">=</span> self<span class="token punctuation">.</span>find_consensus<span class="token punctuation">(</span>solutions<span class="token punctuation">)</span>
+        
+        <span class="token keyword">if</span> consensus<span class="token punctuation">[</span><span class="token string">'confidence'</span><span class="token punctuation">]</span> <span class="token operator">&gt;</span> <span class="token number">0.8</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> consensus<span class="token punctuation">[</span><span class="token string">'answer'</span><span class="token punctuation">]</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            <span class="token comment"># Resolve conflicts with additional reasoning</span>
+            <span class="token keyword">return</span> self<span class="token punctuation">.</span>resolve_conflicts<span class="token punctuation">(</span>problem<span class="token punctuation">,</span> solutions<span class="token punctuation">)</span>
+    
+    <span class="token keyword">def</span> <span class="token function">find_consensus</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> solutions<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment"># Count similar answers</span>
+        answer_counts <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+        <span class="token keyword">for</span> solution <span class="token keyword">in</span> solutions<span class="token punctuation">:</span>
+            key <span class="token operator">=</span> self<span class="token punctuation">.</span>extract_key_answer<span class="token punctuation">(</span>solution<span class="token punctuation">)</span>
+            answer_counts<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> answer_counts<span class="token punctuation">.</span>get<span class="token punctuation">(</span>key<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span>
+        
+        <span class="token comment"># Find most common answer</span>
+        most_common <span class="token operator">=</span> <span class="token builtin">max</span><span class="token punctuation">(</span>answer_counts<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> key<span class="token operator">=</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span> x<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        confidence <span class="token operator">=</span> most_common<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">/</span> <span class="token builtin">len</span><span class="token punctuation">(</span>solutions<span class="token punctuation">)</span>
+        
+        <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token string">'answer'</span><span class="token punctuation">:</span> most_common<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'confidence'</span><span class="token punctuation">:</span> confidence<span class="token punctuation">}</span>
+</code></pre></div> <h3 id="long-context-processing"><a href="#long-context-processing" class="header-anchor">#</a> Long-Context Processing</h3> <p>Handle complex research tasks that require processing large amounts of information and maintaining context across multiple documents.</p> <h4 id="context-window-management"><a href="#context-window-management" class="header-anchor">#</a> Context Window Management</h4> <div class="language-python extra-class"><pre class="language-python"><code><span class="token keyword">class</span> <span class="token class-name">LongContextManager</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> max_tokens<span class="token operator">=</span><span class="token number">4096</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>max_tokens <span class="token operator">=</span> max_tokens
+        self<span class="token punctuation">.</span>memory_buffer <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        self<span class="token punctuation">.</span>summary_cache <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    
+    <span class="token keyword">def</span> <span class="token function">process_long_document</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> document<span class="token punctuation">,</span> query<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment"># Split document into chunks</span>
+        chunks <span class="token operator">=</span> self<span class="token punctuation">.</span>smart_chunking<span class="token punctuation">(</span>document<span class="token punctuation">)</span>
+        
+        <span class="token comment"># Process each chunk with sliding window</span>
+        relevant_chunks <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        <span class="token keyword">for</span> i<span class="token punctuation">,</span> chunk <span class="token keyword">in</span> <span class="token builtin">enumerate</span><span class="token punctuation">(</span>chunks<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            relevance <span class="token operator">=</span> self<span class="token punctuation">.</span>assess_relevance<span class="token punctuation">(</span>chunk<span class="token punctuation">,</span> query<span class="token punctuation">)</span>
+            <span class="token keyword">if</span> relevance <span class="token operator">&gt;</span> <span class="token number">0.7</span><span class="token punctuation">:</span>
+                relevant_chunks<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">{</span>
+                    <span class="token string">'content'</span><span class="token punctuation">:</span> chunk<span class="token punctuation">,</span>
+                    <span class="token string">'index'</span><span class="token punctuation">:</span> i<span class="token punctuation">,</span>
+                    <span class="token string">'relevance'</span><span class="token punctuation">:</span> relevance
+                <span class="token punctuation">}</span><span class="token punctuation">)</span>
+        
+        <span class="token comment"># Synthesize information from relevant chunks</span>
+        <span class="token keyword">return</span> self<span class="token punctuation">.</span>synthesize_information<span class="token punctuation">(</span>relevant_chunks<span class="token punctuation">,</span> query<span class="token punctuation">)</span>
+    
+    <span class="token keyword">def</span> <span class="token function">smart_chunking</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> document<span class="token punctuation">,</span> chunk_size<span class="token operator">=</span><span class="token number">1000</span><span class="token punctuation">,</span> overlap<span class="token operator">=</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment"># Split on sentence boundaries for better coherence</span>
+        sentences <span class="token operator">=</span> self<span class="token punctuation">.</span>split_sentences<span class="token punctuation">(</span>document<span class="token punctuation">)</span>
+        
+        chunks <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        current_chunk <span class="token operator">=</span> <span class="token string">&quot;&quot;</span>
+        
+        <span class="token keyword">for</span> sentence <span class="token keyword">in</span> sentences<span class="token punctuation">:</span>
+            <span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span>current_chunk <span class="token operator">+</span> sentence<span class="token punctuation">)</span> <span class="token operator">&gt;</span> chunk_size<span class="token punctuation">:</span>
+                chunks<span class="token punctuation">.</span>append<span class="token punctuation">(</span>current_chunk<span class="token punctuation">)</span>
+                <span class="token comment"># Keep some overlap for context</span>
+                current_chunk <span class="token operator">=</span> current_chunk<span class="token punctuation">[</span><span class="token operator">-</span>overlap<span class="token punctuation">:</span><span class="token punctuation">]</span> <span class="token operator">+</span> sentence
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                current_chunk <span class="token operator">+=</span> sentence
+        
+        <span class="token keyword">if</span> current_chunk<span class="token punctuation">:</span>
+            chunks<span class="token punctuation">.</span>append<span class="token punctuation">(</span>current_chunk<span class="token punctuation">)</span>
+        
+        <span class="token keyword">return</span> chunks
+</code></pre></div> <h3 id="deep-research-agent-project"><a href="#deep-research-agent-project" class="header-anchor">#</a> Deep Research Agent Project</h3> <p>Build an advanced research system that can handle complex, multi-faceted queries with iterative refinement and structured reporting.</p> <h4 id="key-capabilities"><a href="#key-capabilities" class="header-anchor">#</a> Key Capabilities</h4> <ul><li><strong>Multi-step reasoning</strong> - Breaks complex questions into sub-questions</li> <li><strong>Iterative refinement</strong> - Improves understanding through follow-up queries</li> <li><strong>Source verification</strong> - Cross-references information across sources</li> <li><strong>Structured reporting</strong> - Generates comprehensive research reports</li> <li><strong>Conflict resolution</strong> - Handles contradictory information</li></ul> <h4 id="research-workflow"><a href="#research-workflow" class="header-anchor">#</a> Research Workflow</h4> <div class="language-python extra-class"><pre class="language-python"><code><span class="token keyword">class</span> <span class="token class-name">DeepResearchAgent</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">conduct_research</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> research_question<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment"># Phase 1: Question decomposition</span>
+        subquestions <span class="token operator">=</span> self<span class="token punctuation">.</span>decompose_question<span class="token punctuation">(</span>research_question<span class="token punctuation">)</span>
+        
+        <span class="token comment"># Phase 2: Information gathering</span>
+        evidence_base <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        <span class="token keyword">for</span> subquestion <span class="token keyword">in</span> subquestions<span class="token punctuation">:</span>
+            evidence <span class="token operator">=</span> self<span class="token punctuation">.</span>gather_evidence<span class="token punctuation">(</span>subquestion<span class="token punctuation">)</span>
+            evidence_base<span class="token punctuation">.</span>extend<span class="token punctuation">(</span>evidence<span class="token punctuation">)</span>
+        
+        <span class="token comment"># Phase 3: Evidence analysis</span>
+        analyzed_evidence <span class="token operator">=</span> self<span class="token punctuation">.</span>analyze_evidence<span class="token punctuation">(</span>evidence_base<span class="token punctuation">,</span> research_question<span class="token punctuation">)</span>
+        
+        <span class="token comment"># Phase 4: Synthesis and reporting</span>
+        research_report <span class="token operator">=</span> self<span class="token punctuation">.</span>synthesize_report<span class="token punctuation">(</span>
+            research_question<span class="token punctuation">,</span> 
+            subquestions<span class="token punctuation">,</span> 
+            analyzed_evidence
+        <span class="token punctuation">)</span>
+        
+        <span class="token keyword">return</span> research_report
+    
+    <span class="token keyword">def</span> <span class="token function">analyze_evidence</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> evidence_base<span class="token punctuation">,</span> research_question<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        analysis <span class="token operator">=</span> <span class="token punctuation">{</span>
+            <span class="token string">'supporting_evidence'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token string">'contradicting_evidence'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token string">'gaps'</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token string">'confidence_levels'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        
+        <span class="token comment"># Categorize evidence by relevance and credibility</span>
+        <span class="token keyword">for</span> evidence <span class="token keyword">in</span> evidence_base<span class="token punctuation">:</span>
+            relevance <span class="token operator">=</span> self<span class="token punctuation">.</span>assess_relevance<span class="token punctuation">(</span>evidence<span class="token punctuation">,</span> research_question<span class="token punctuation">)</span>
+            credibility <span class="token operator">=</span> self<span class="token punctuation">.</span>assess_credibility<span class="token punctuation">(</span>evidence<span class="token punctuation">)</span>
+            
+            <span class="token keyword">if</span> relevance <span class="token operator">&gt;</span> <span class="token number">0.7</span> <span class="token keyword">and</span> credibility <span class="token operator">&gt;</span> <span class="token number">0.6</span><span class="token punctuation">:</span>
+                stance <span class="token operator">=</span> self<span class="token punctuation">.</span>determine_stance<span class="token punctuation">(</span>evidence<span class="token punctuation">,</span> research_question<span class="token punctuation">)</span>
+                <span class="token keyword">if</span> stance <span class="token operator">==</span> <span class="token string">'supporting'</span><span class="token punctuation">:</span>
+                    analysis<span class="token punctuation">[</span><span class="token string">'supporting_evidence'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>evidence<span class="token punctuation">)</span>
+                <span class="token keyword">elif</span> stance <span class="token operator">==</span> <span class="token string">'contradicting'</span><span class="token punctuation">:</span>
+                    analysis<span class="token punctuation">[</span><span class="token string">'contradicting_evidence'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>evidence<span class="token punctuation">)</span>
+        
+        <span class="token keyword">return</span> analysis
+</code></pre></div> <hr> <h2 id="week-5-image-generation-elevenlabs"><a href="#week-5-image-generation-elevenlabs" class="header-anchor">#</a> Week 5: Image Generation &amp; ElevenLabs</h2> <h3 id="diffusion-models-and-stable-diffusion"><a href="#diffusion-models-and-stable-diffusion" class="header-anchor">#</a> Diffusion Models and Stable Diffusion</h3> <p>Master the art of AI image generation using state-of-the-art diffusion models with fine-tuning capabilities.</p> <h4 id="understanding-diffusion-process"><a href="#understanding-diffusion-process" class="header-anchor">#</a> Understanding Diffusion Process</h4> <div class="language-python extra-class"><pre class="language-python"><code><span class="token keyword">from</span> diffusers <span class="token keyword">import</span> StableDiffusionPipeline<span class="token punctuation">,</span> DPMSolverMultistepScheduler
+<span class="token keyword">import</span> torch
+
+<span class="token keyword">class</span> <span class="token class-name">ImageGenerationService</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> model_id<span class="token operator">=</span><span class="token string">&quot;runwayml/stable-diffusion-v1-5&quot;</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment"># Load Stable Diffusion pipeline</span>
+        self<span class="token punctuation">.</span>pipe <span class="token operator">=</span> StableDiffusionPipeline<span class="token punctuation">.</span>from_pretrained<span class="token punctuation">(</span>
+            model_id<span class="token punctuation">,</span>
+            torch_dtype<span class="token operator">=</span>torch<span class="token punctuation">.</span>float16<span class="token punctuation">,</span>
+            safety_checker<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span>
+            requires_safety_checker<span class="token operator">=</span><span class="token boolean">False</span>
+        <span class="token punctuation">)</span>
+        
+        <span class="token comment"># Use faster scheduler</span>
+        self<span class="token punctuation">.</span>pipe<span class="token punctuation">.</span>scheduler <span class="token operator">=</span> DPMSolverMultistepScheduler<span class="token punctuation">.</span>from_config<span class="token punctuation">(</span>
+            self<span class="token punctuation">.</span>pipe<span class="token punctuation">.</span>scheduler<span class="token punctuation">.</span>config
+        <span class="token punctuation">)</span>
+        
+        <span class="token comment"># Move to GPU if available</span>
+        <span class="token keyword">if</span> torch<span class="token punctuation">.</span>cuda<span class="token punctuation">.</span>is_available<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>pipe <span class="token operator">=</span> self<span class="token punctuation">.</span>pipe<span class="token punctuation">.</span>to<span class="token punctuation">(</span><span class="token string">&quot;cuda&quot;</span><span class="token punctuation">)</span>
+        
+        <span class="token comment"># Enable memory efficient attention</span>
+        self<span class="token punctuation">.</span>pipe<span class="token punctuation">.</span>enable_attention_slicing<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    
+    <span class="token keyword">def</span> <span class="token function">generate_image</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> prompt<span class="token punctuation">,</span> negative_prompt<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> **kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment"># Default parameters for high-quality generation</span>
+        params <span class="token operator">=</span> <span class="token punctuation">{</span>
+            <span class="token string">'width'</span><span class="token punctuation">:</span> <span class="token number">512</span><span class="token punctuation">,</span>
+            <span class="token string">'height'</span><span class="token punctuation">:</span> <span class="token number">512</span><span class="token punctuation">,</span>
+            <span class="token string">'num_inference_steps'</span><span class="token punctuation">:</span> <span class="token number">25</span><span class="token punctuation">,</span>
+            <span class="token string">'guidance_scale'</span><span class="token punctuation">:</span> <span class="token number">7.5</span><span class="token punctuation">,</span>
+            <span class="token string">'num_images_per_prompt'</span><span class="token punctuation">:</span> <span class="token number">1</span>
+        <span class="token punctuation">}</span>
+        params<span class="token punctuation">.</span>update<span class="token punctuation">(</span>kwargs<span class="token punctuation">)</span>
+        
+        <span class="token comment"># Generate image</span>
+        <span class="token keyword">with</span> torch<span class="token punctuation">.</span>autocast<span class="token punctuation">(</span><span class="token string">&quot;cuda&quot;</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            result <span class="token operator">=</span> self<span class="token punctuation">.</span>pipe<span class="token punctuation">(</span>
+                prompt<span class="token operator">=</span>prompt<span class="token punctuation">,</span>
+                negative_prompt<span class="token operator">=</span>negative_prompt<span class="token punctuation">,</span>
+                <span class="token operator">**</span>params
+            <span class="token punctuation">)</span>
+        
+        <span class="token keyword">return</span> result<span class="token punctuation">.</span>images<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+</code></pre></div> <h4 id="advanced-prompt-engineering"><a href="#advanced-prompt-engineering" class="header-anchor">#</a> Advanced Prompt Engineering</h4> <div class="language-python extra-class"><pre class="language-python"><code><span class="token keyword">class</span> <span class="token class-name">AdvancedPromptEngine</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>style_templates <span class="token operator">=</span> <span class="token punctuation">{</span>
+            <span class="token string">'photorealistic'</span><span class="token punctuation">:</span> <span class="token string">&quot;highly detailed, photorealistic, 8k resolution, professional photography&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">'artistic'</span><span class="token punctuation">:</span> <span class="token string">&quot;beautiful artwork, painted by master artist, trending on artstation&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">'anime'</span><span class="token punctuation">:</span> <span class="token string">&quot;anime style, highly detailed, studio ghibli, beautiful animation&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">'cyberpunk'</span><span class="token punctuation">:</span> <span class="token string">&quot;cyberpunk style, neon lights, futuristic, blade runner aesthetic&quot;</span>
+        <span class="token punctuation">}</span>
+        
+        self<span class="token punctuation">.</span>quality_boosters <span class="token operator">=</span> <span class="token punctuation">[</span>
+            <span class="token string">&quot;masterpiece&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;best quality&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;highly detailed&quot;</span><span class="token punctuation">,</span> 
+            <span class="token string">&quot;sharp focus&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;professional&quot;</span>
+        <span class="token punctuation">]</span>
+        
+        self<span class="token punctuation">.</span>negative_defaults <span class="token operator">=</span> <span class="token punctuation">[</span>
+            <span class="token string">&quot;blurry&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;low quality&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;distorted&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;ugly&quot;</span><span class="token punctuation">,</span> 
+            <span class="token string">&quot;duplicate&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;morbid&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;mutilated&quot;</span>
+        <span class="token punctuation">]</span>
+    
+    <span class="token keyword">def</span> <span class="token function">enhance_prompt</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> base_prompt<span class="token punctuation">,</span> style<span class="token operator">=</span><span class="token string">'photorealistic'</span><span class="token punctuation">,</span> add_quality<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        enhanced_parts <span class="token operator">=</span> <span class="token punctuation">[</span>base_prompt<span class="token punctuation">]</span>
+        
+        <span class="token comment"># Add style template</span>
+        <span class="token keyword">if</span> style <span class="token keyword">in</span> self<span class="token punctuation">.</span>style_templates<span class="token punctuation">:</span>
+            enhanced_parts<span class="token punctuation">.</span>append<span class="token punctuation">(</span>self<span class="token punctuation">.</span>style_templates<span class="token punctuation">[</span>style<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        
+        <span class="token comment"># Add quality boosters</span>
+        <span class="token keyword">if</span> add_quality<span class="token punctuation">:</span>
+            enhanced_parts<span class="token punctuation">.</span>extend<span class="token punctuation">(</span>self<span class="token punctuation">.</span>quality_boosters<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        
+        enhanced_prompt <span class="token operator">=</span> <span class="token string">&quot;, &quot;</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>enhanced_parts<span class="token punctuation">)</span>
+        negative_prompt <span class="token operator">=</span> <span class="token string">&quot;, &quot;</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>self<span class="token punctuation">.</span>negative_defaults<span class="token punctuation">)</span>
+        
+        <span class="token keyword">return</span> enhanced_prompt<span class="token punctuation">,</span> negative_prompt
+</code></pre></div> <h3 id="elevenlabs-voice-integration"><a href="#elevenlabs-voice-integration" class="header-anchor">#</a> ElevenLabs Voice Integration</h3> <p>Create sophisticated voice-enabled applications with text-to-speech and speech-to-text capabilities.</p> <h4 id="voice-synthesis-service"><a href="#voice-synthesis-service" class="header-anchor">#</a> Voice Synthesis Service</h4> <div class="language-python extra-class"><pre class="language-python"><code><span class="token keyword">import</span> requests
+<span class="token keyword">import</span> io
+<span class="token keyword">from</span> pydub <span class="token keyword">import</span> AudioSegment
+<span class="token keyword">from</span> pydub<span class="token punctuation">.</span>playback <span class="token keyword">import</span> play
+
+<span class="token keyword">class</span> <span class="token class-name">ElevenLabsService</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> api_key<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>api_key <span class="token operator">=</span> api_key
+        self<span class="token punctuation">.</span>base_url <span class="token operator">=</span> <span class="token string">&quot;https://api.elevenlabs.io/v1&quot;</span>
+        self<span class="token punctuation">.</span>headers <span class="token operator">=</span> <span class="token punctuation">{</span>
+            <span class="token string">&quot;Accept&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;audio/mpeg&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;Content-Type&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;application/json&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;xi-api-key&quot;</span><span class="token punctuation">:</span> self<span class="token punctuation">.</span>api_key
+        <span class="token punctuation">}</span>
+    
+    <span class="token keyword">def</span> <span class="token function">text_to_speech</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> text<span class="token punctuation">,</span> voice_id<span class="token operator">=</span><span class="token string">&quot;21m00Tcm4TlvDq8ikWAM&quot;</span><span class="token punctuation">,</span> save_path<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">&quot;&quot;&quot;
+        Convert text to speech using ElevenLabs API
+        
+        Args:
+            text: Text to convert to speech
+            voice_id: ElevenLabs voice ID (default: Rachel)
+            save_path: Optional path to save audio file
+        
+        Returns:
+            Audio bytes or saved file path
+        &quot;&quot;&quot;</span>
+        url <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f&quot;</span><span class="token interpolation"><span class="token punctuation">{</span>self<span class="token punctuation">.</span>base_url<span class="token punctuation">}</span></span><span class="token string">/text-to-speech/</span><span class="token interpolation"><span class="token punctuation">{</span>voice_id<span class="token punctuation">}</span></span><span class="token string">&quot;</span></span>
+        
+        data <span class="token operator">=</span> <span class="token punctuation">{</span>
+            <span class="token string">&quot;text&quot;</span><span class="token punctuation">:</span> text<span class="token punctuation">,</span>
+            <span class="token string">&quot;model_id&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;eleven_monolingual_v1&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;voice_settings&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+                <span class="token string">&quot;stability&quot;</span><span class="token punctuation">:</span> <span class="token number">0.5</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;similarity_boost&quot;</span><span class="token punctuation">:</span> <span class="token number">0.5</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        
+        response <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>url<span class="token punctuation">,</span> json<span class="token operator">=</span>data<span class="token punctuation">,</span> headers<span class="token operator">=</span>self<span class="token punctuation">.</span>headers<span class="token punctuation">)</span>
+        
+        <span class="token keyword">if</span> response<span class="token punctuation">.</span>status_code <span class="token operator">==</span> <span class="token number">200</span><span class="token punctuation">:</span>
+            audio_bytes <span class="token operator">=</span> response<span class="token punctuation">.</span>content
+            
+            <span class="token keyword">if</span> save_path<span class="token punctuation">:</span>
+                <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span>save_path<span class="token punctuation">,</span> <span class="token string">'wb'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+                    f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>audio_bytes<span class="token punctuation">)</span>
+                <span class="token keyword">return</span> save_path
+            
+            <span class="token keyword">return</span> audio_bytes
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            <span class="token keyword">raise</span> <span class="token builtin">Exception</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f&quot;TTS request failed: </span><span class="token interpolation"><span class="token punctuation">{</span>response<span class="token punctuation">.</span>text<span class="token punctuation">}</span></span><span class="token string">&quot;</span></span><span class="token punctuation">)</span>
+    
+    <span class="token keyword">def</span> <span class="token function">get_available_voices</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">&quot;&quot;&quot;Get list of available voices&quot;&quot;&quot;</span>
+        url <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f&quot;</span><span class="token interpolation"><span class="token punctuation">{</span>self<span class="token punctuation">.</span>base_url<span class="token punctuation">}</span></span><span class="token string">/voices&quot;</span></span>
+        response <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">,</span> headers<span class="token operator">=</span>self<span class="token punctuation">.</span>headers<span class="token punctuation">)</span>
+        
+        <span class="token keyword">if</span> response<span class="token punctuation">.</span>status_code <span class="token operator">==</span> <span class="token number">200</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> response<span class="token punctuation">.</span>json<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string">'voices'</span><span class="token punctuation">]</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            <span class="token keyword">raise</span> <span class="token builtin">Exception</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f&quot;Failed to get voices: </span><span class="token interpolation"><span class="token punctuation">{</span>response<span class="token punctuation">.</span>text<span class="token punctuation">}</span></span><span class="token string">&quot;</span></span><span class="token punctuation">)</span>
+</code></pre></div> <h3 id="multimodal-application-project"><a href="#multimodal-application-project" class="header-anchor">#</a> Multimodal Application Project</h3> <p>Build a voice-controlled image generation service that combines speech recognition, natural language processing, image generation, and speech synthesis.</p> <h4 id="complete-voice-to-image-pipeline"><a href="#complete-voice-to-image-pipeline" class="header-anchor">#</a> Complete Voice-to-Image Pipeline</h4> <div class="language-python extra-class"><pre class="language-python"><code><span class="token keyword">class</span> <span class="token class-name">VoiceImageGenerator</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> elevenlabs_api_key<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>image_generator <span class="token operator">=</span> ImageGenerationService<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>voice_service <span class="token operator">=</span> ElevenLabsService<span class="token punctuation">(</span>elevenlabs_api_key<span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>prompt_engine <span class="token operator">=</span> AdvancedPromptEngine<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>conversation_history <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    
+    <span class="token keyword">def</span> <span class="token function">process_voice_request</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> audio_file_path<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment"># Step 1: Convert speech to text</span>
+        user_text <span class="token operator">=</span> self<span class="token punctuation">.</span>speech_to_text<span class="token punctuation">(</span>audio_file_path<span class="token punctuation">)</span>
+        
+        <span class="token comment"># Step 2: Understand intent and extract image description</span>
+        image_request <span class="token operator">=</span> self<span class="token punctuation">.</span>parse_image_request<span class="token punctuation">(</span>user_text<span class="token punctuation">)</span>
+        
+        <span class="token comment"># Step 3: Generate enhanced prompt</span>
+        enhanced_prompt<span class="token punctuation">,</span> negative_prompt <span class="token operator">=</span> self<span class="token punctuation">.</span>prompt_engine<span class="token punctuation">.</span>enhance_prompt<span class="token punctuation">(</span>
+            image_request<span class="token punctuation">[</span><span class="token string">'description'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            style<span class="token operator">=</span>image_request<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'style'</span><span class="token punctuation">,</span> <span class="token string">'photorealistic'</span><span class="token punctuation">)</span>
+        <span class="token punctuation">)</span>
+        
+        <span class="token comment"># Step 4: Generate image</span>
+        image <span class="token operator">=</span> self<span class="token punctuation">.</span>image_generator<span class="token punctuation">.</span>generate_image<span class="token punctuation">(</span>
+            enhanced_prompt<span class="token punctuation">,</span>
+            negative_prompt<span class="token operator">=</span>negative_prompt
+        <span class="token punctuation">)</span>
+        
+        <span class="token comment"># Step 5: Describe the generated image</span>
+        image_description <span class="token operator">=</span> self<span class="token punctuation">.</span>describe_image<span class="token punctuation">(</span>image<span class="token punctuation">,</span> user_text<span class="token punctuation">)</span>
+        
+        <span class="token comment"># Step 6: Convert description to speech</span>
+        response_audio <span class="token operator">=</span> self<span class="token punctuation">.</span>voice_service<span class="token punctuation">.</span>text_to_speech<span class="token punctuation">(</span>image_description<span class="token punctuation">)</span>
+        
+        <span class="token comment"># Step 7: Save conversation history</span>
+        self<span class="token punctuation">.</span>conversation_history<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">{</span>
+            <span class="token string">'user_input'</span><span class="token punctuation">:</span> user_text<span class="token punctuation">,</span>
+            <span class="token string">'generated_prompt'</span><span class="token punctuation">:</span> enhanced_prompt<span class="token punctuation">,</span>
+            <span class="token string">'image'</span><span class="token punctuation">:</span> image<span class="token punctuation">,</span>
+            <span class="token string">'description'</span><span class="token punctuation">:</span> image_description
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+        
+        <span class="token keyword">return</span> <span class="token punctuation">{</span>
+            <span class="token string">'image'</span><span class="token punctuation">:</span> image<span class="token punctuation">,</span>
+            <span class="token string">'description'</span><span class="token punctuation">:</span> image_description<span class="token punctuation">,</span>
+            <span class="token string">'audio_response'</span><span class="token punctuation">:</span> response_audio
+        <span class="token punctuation">}</span>
+    
+    <span class="token keyword">def</span> <span class="token function">parse_image_request</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> user_text<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment"># Use LLM to extract image description and style preferences</span>
+        parsing_prompt <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f&quot;&quot;&quot;
+        Extract the image description and style from this user request:
+        
+        User: </span><span class="token interpolation"><span class="token punctuation">{</span>user_text<span class="token punctuation">}</span></span><span class="token string">
+        
+        Return a JSON with:
+        - description: detailed image description
+        - style: one of [photorealistic, artistic, anime, cyberpunk]
+        - mood: optional mood or atmosphere
+        
+        JSON:
+        &quot;&quot;&quot;</span></span>
+        
+        <span class="token comment"># Parse with your LLM and return structured data</span>
+        <span class="token keyword">return</span> <span class="token punctuation">{</span>
+            <span class="token string">'description'</span><span class="token punctuation">:</span> <span class="token string">'extracted description'</span><span class="token punctuation">,</span>
+            <span class="token string">'style'</span><span class="token punctuation">:</span> <span class="token string">'photorealistic'</span>
+        <span class="token punctuation">}</span>
+</code></pre></div> <h4 id="example-interaction-flow"><a href="#example-interaction-flow" class="header-anchor">#</a> Example Interaction Flow</h4> <div class="language-text extra-class"><pre class="language-text"><code>User: [Voice] &quot;Create a sunset over mountains in Van Gogh style&quot;
+
+System Processing:
+1. Speech-to-Text: &quot;Create a sunset over mountains in Van Gogh style&quot;
+2. Intent Parsing: {description: &quot;sunset over mountains&quot;, style: &quot;Van Gogh&quot;}
+3. Prompt Enhancement: &quot;sunset over mountains, Van Gogh style, swirling clouds, 
+   vibrant colors, post-impressionist painting, masterpiece, highly detailed&quot;
+4. Image Generation: [Creates artistic sunset image]
+5. Image Description: &quot;I've created a beautiful Van Gogh-style painting showing 
+   a dramatic sunset over mountain peaks. The image features swirling clouds in 
+   brilliant oranges and yellows, with the mountains rendered in deep purples 
+   and blues, all painted with Van Gogh's characteristic bold brushstrokes.&quot;
+6. Text-to-Speech: [Plays audio description]
+
+Result: User receives both the generated image and an audio description
+</code></pre></div> <hr> <h2 id="key-learning-outcomes"><a href="#key-learning-outcomes" class="header-anchor">#</a> Key Learning Outcomes</h2> <p>After completing weeks 4-5, you will:</p> <ul><li><strong>Master advanced reasoning</strong> - Implement CoT, ToT, and self-consistency patterns</li> <li><strong>Handle long contexts</strong> - Process large documents with intelligent chunking</li> <li><strong>Build multimodal systems</strong> - Combine text, image, and voice modalities</li> <li><strong>Generate high-quality images</strong> - Use Stable Diffusion with advanced prompting</li> <li><strong>Integrate voice AI</strong> - Build speech-enabled applications with ElevenLabs</li> <li><strong>Create sophisticated agents</strong> - Design systems that reason, verify, and self-correct</li></ul> <h2 id="technical-skills-developed"><a href="#technical-skills-developed" class="header-anchor">#</a> Technical Skills Developed</h2> <ul><li><strong>Chain-of-Thought Reasoning</strong> - Step-by-step problem decomposition</li> <li><strong>Tree-of-Thoughts</strong> - Exploring multiple solution paths</li> <li><strong>Self-Consistency</strong> - Verification through multiple sampling</li> <li><strong>Diffusion Models</strong> - Stable Diffusion and image generation</li> <li><strong>ElevenLabs API</strong> - Professional voice synthesis</li> <li><strong>Multimodal Integration</strong> - Combining multiple AI modalities</li> <li><strong>Long-Context Processing</strong> - Handling large documents efficiently</li></ul> <h2 id="applications-built"><a href="#applications-built" class="header-anchor">#</a> Applications Built</h2> <ul><li><strong>Deep Research Agent</strong> - Advanced multi-step reasoning system</li> <li><strong>Voice-Controlled Image Generator</strong> - Complete speech-to-image pipeline</li> <li><strong>Iterative Query Refinement</strong> - Self-improving research capabilities</li> <li><strong>Structured Report Generation</strong> - Professional research documentation</li></ul> <h2 id="next-steps"><a href="#next-steps" class="header-anchor">#</a> Next Steps</h2> <p>With advanced techniques mastered, you're ready for:</p> <ul><li><a href="capstone-advanced.html">Capstone &amp; Advanced (Week 6-7)</a> - Your independent project and cutting-edge techniques</li></ul> <hr> <h2 id="resources"><a href="#resources" class="header-anchor">#</a> Resources</h2> <ul><li><a href="https://arxiv.org/abs/2201.11903" target="_blank" rel="noopener noreferrer">Chain-of-Thought Prompting<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> – Original CoT research paper</li> <li><a href="https://arxiv.org/abs/2305.10601" target="_blank" rel="noopener noreferrer">Tree of Thoughts<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> – ToT deliberate problem solving</li> <li><a href="https://huggingface.co/docs/diffusers" target="_blank" rel="noopener noreferrer">Diffusers Documentation<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> – Stable Diffusion and image generation</li> <li><a href="https://docs.elevenlabs.io/" target="_blank" rel="noopener noreferrer">ElevenLabs API Documentation<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> – Voice synthesis and cloning</li> <li><a href="https://arxiv.org/abs/2112.10752" target="_blank" rel="noopener noreferrer">High-Resolution Image Synthesis<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> – Latent Diffusion Models paper</li></ul></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/yetog/yetog/knowledge-base/edit/main/ai-engineering/advanced-techniques.md" target="_blank" rel="noopener noreferrer">Edit this page</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">10/11/2025, 12:00:00 AM</span></div></footer> <!----> </main></div><div class="global-ui"></div></div>
+      <script src="../assets/js/search.js" defer></script>
+  </body>
+</html>

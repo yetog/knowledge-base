@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Automation Tools | Isayah Young Burke</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    
+    <meta name="description" content="Production deployment scripts and automation tools for managing portfolio applications">
+    
+    <link rel="preload" href="../assets/css/styles.css" as="style">
+    <link rel="preload" href="../assets/js/search.js" as="script">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/custom.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="https://zaylegend.com/" class="home-link router-link-active"><!----> <span class="site-name">Isayah Young Burke</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="https://zaylegend.com/blog/" class="nav-link">
+  Blog
+</a></div><div class="nav-item"><a href="../index.html" class="nav-link">
+  Knowledge
+</a></div><div class="nav-item"><a href="https://zaylegend.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Subscribe
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://twitter.com/zaylegend" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Twitter
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="https://zaylegend.com/blog/" class="nav-link">
+  Blog
+</a></div><div class="nav-item"><a href="../index.html" class="nav-link">
+  Knowledge
+</a></div><div class="nav-item"><a href="https://zaylegend.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Subscribe
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://twitter.com/zaylegend" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Twitter
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Miscellaneous</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a class='sidebar-link' href='../chess.html'>Chess</a></li><li><a class='sidebar-link' href='../climbing.html'>Climbing</a></li><li><a class='sidebar-link' href='../consciousness.html'>Consciousness</a></li><li><a class='sidebar-link' href='../languages.html'>Languages</a></li><li><a class='sidebar-link' href='../mathematics.html'>Mathematics</a></li><li><a class='sidebar-link' href='../meditation.html'>Meditation</a></li><li><a class='sidebar-link' href='../mimetic-theory.html'>Mimetic Theory</a></li><li><a class='sidebar-link' href='../music.html'>Music</a></li><li><a class='sidebar-link' href='../physics.html'>Physics</a></li><li><a class='sidebar-link' href='../public-speaking.html'>Public Speaking</a></li><li><a class='sidebar-link' href='../pyrolysis.html'>Pyrolysis</a></li><li><a class='sidebar-link' href='../relationships.html'>Relationships</a></li><li><a class='sidebar-link' href='../soil.html'>Soil Health</a></li><li><a class='sidebar-link' href='../space.html'>Space</a></li><li><a class='sidebar-link' href='../trees.html'>Trees</a></li><li><a class='sidebar-link' href='../writing.html'>Writing</a></li><li><a class='sidebar-link' href='../zoology.html'>Zoology</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Tech</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a class='sidebar-link' href='ai-development.html'>AI Development</a></li><li><a class='sidebar-link' href='development-workflows.html'>Development Workflows</a></li><li><a class='sidebar-link' href='session-recaps.html'>Session Recaps</a></li><li><a class='sidebar-link' href='automation-tools.html'>Automation Tools</a></li><li><a class='sidebar-link' href='awesome-list.html'>Awesome List</a></li><li><a class='sidebar-link' href='bash-profile.html'>MacOS Bash Profile</a></li><li><a class='sidebar-link' href='docker.html'>Docker Cheatsheet</a></li><li><a class='sidebar-link' href='html-cheatsheet.html'>HTML Cheatsheet</a></li><li><a class='sidebar-link' href='macos-tips.html'>MacOS tips</a></li><li><a class='sidebar-link' href='mental-models.html'>Mental Models</a></li><li><a class='sidebar-link' href='postgresql.html'>PostgreSQL cheatsheet</a></li><li><a class='sidebar-link' href='postgres-data.html'>Loading JSON into Postgres</a></li><li><a class='sidebar-link' href='regex.html'>Regex Cheatsheet</a></li><li><a class='sidebar-link' href='secrets-management-sops.html'>Secrets management - SOPS</a></li><li><a class='sidebar-link' href='seo.html'>SEO Cheatsheet</a></li><li><a class='sidebar-link' href='today-i-learned.html'>Today I Learned</a></li><li><a class='sidebar-link' href='vscode-snippets.html'>VSCode Snippets</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Courses</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><section class="sidebar-group depth-1"><p class="sidebar-heading"><span>AI Engineering</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a class='sidebar-link' href='../ai-engineering/index.html'>Course Overview</a></li><li><a class='sidebar-link' href='../ai-engineering/syllabus.html'>Full Syllabus</a></li><li><a class='sidebar-link' href='../ai-engineering/foundations.html'>Foundations (Week 0-1)</a></li><li><a class='sidebar-link' href='../ai-engineering/core-applications.html'>Core Applications (Week 2-3)</a></li><li><a class='sidebar-link' href='../ai-engineering/advanced-techniques.html'>Advanced Techniques (Week 4-5)</a></li><li><a class='sidebar-link' href='../ai-engineering/capstone-advanced.html'>Capstone & Advanced (Week 6-7)</a></li></ul></section></li><li><a class='sidebar-link' href='../courses/mindfulness.html'>Mindfulness Course</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Business</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a class='sidebar-link' href='../business/hiring.html'>Hiring</a></li><li><a class='sidebar-link' href='../business/management.html'>Management</a></li><li><a class='sidebar-link' href='../business/sales.html'>Sales</a></li><li><a class='sidebar-link' href='../business/marketing.html'>Marketing</a></li><li><a class='sidebar-link' href='../business/fundraising.html'>Fundraising</a></li><li><a class='sidebar-link' href='../business/resources.html'>Startup Resources</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Levels</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a class='sidebar-link' href='../levels/business.html'>Business</a></li><li><a class='sidebar-link' href='../levels/life.html'>Life</a></li><li><a class='sidebar-link' href='../levels/leadership.html'>Leadership</a></li><li><a class='sidebar-link' href='../levels/learning.html'>Learning</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>Philosophy</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a class='sidebar-link' href='../philosophy/ethics.html'>Ethics</a></li><li><a class='sidebar-link' href='../philosophy/buddhism.html'>Buddhism</a></li><li><a class='sidebar-link' href='../philosophy/stoicism.html'>Stoicism</a></li><li><a class='sidebar-link' href='../philosophy/desire.html'>Desire</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>People</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a class='sidebar-link' href='../people.html'>People</a></li><li><a class='sidebar-link' href='../people/lee-kuan-yew.html'>Lee Kuan Yew</a></li><li><a class='sidebar-link' href='../people/jensen-huang.html'>Jensen Huang</a></li><li><a class='sidebar-link' href='../people/elon-musk.html'>Elon Musk</a></li><li><a class='sidebar-link' href='../people/marlon-brando.html'>Marlon Brando</a></li><li><a class='sidebar-link' href='../people/nelson-mandela.html'>Nelson Mandela</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default">
+
+<h1 id="automation-tools">Automation Tools</h1>
+
+<p>Production-ready deployment scripts and automation tools for managing containerized portfolio applications. These tools streamline the deployment process and ensure consistent, reliable application management.</p>
+
+<h2 id="portfolio-app-deployment-script">Portfolio App Deployment Script</h2>
+
+<p>A comprehensive bash script for deploying React/Vite applications as Docker containers with nginx integration. This script handles the entire deployment lifecycle from building to testing and provides detailed feedback throughout the process.</p>
+
+<h3 id="overview">📋 Overview</h3>
+
+<p>The <code>deploy-portfolio-app.sh</code> script automates the deployment of portfolio applications by:</p>
+
+<ul>
+<li>Building Docker images with proper environment configuration</li>
+<li>Managing container lifecycle (stop, remove, start)</li>
+<li>Performing health checks and validation</li>
+<li>Providing nginx configuration guidance</li>
+<li>Testing JavaScript asset delivery</li>
+<li>Offering comprehensive deployment feedback</li>
+</ul>
+
+<h3 id="key-features">🚀 Key Features</h3>
+
+<h4>Intelligent Port Management</h4>
+<ul>
+<li><strong>Port Conflict Detection</strong>: Automatically detects if the specified port is already in use</li>
+<li><strong>Container Recognition</strong>: Identifies if the port is used by the same app (for rebuilds) or different container</li>
+<li><strong>Interactive Rebuilds</strong>: Prompts user for rebuild confirmation when container exists</li>
+<li><strong>Force Rebuild Option</strong>: Supports <code>rebuild</code> parameter for automated rebuilds</li>
+</ul>
+
+<h4>Comprehensive Validation</h4>
+<ul>
+<li><strong>Directory Validation</strong>: Ensures app directory exists before deployment</li>
+<li><strong>Required Files Check</strong>: Validates presence of Dockerfile and package.json</li>
+<li><strong>Container Health Checks</strong>: Tests container responsiveness after deployment</li>
+<li><strong>Asset Validation</strong>: Verifies JavaScript files are serving correctly</li>
+</ul>
+
+<h4>Production-Ready Features</h4>
+<ul>
+<li><strong>Error Handling</strong>: Graceful failure handling with helpful error messages</li>
+<li><strong>Colored Output</strong>: Clear, color-coded status messages for better readability</li>
+<li><strong>Restart Policies</strong>: Configures containers with <code>unless-stopped</code> restart policy</li>
+<li><strong>nginx Integration</strong>: Provides complete nginx configuration templates</li>
+</ul>
+
+<h3 id="usage-examples">📖 Usage Examples</h3>
+
+<div class="language-bash extra-class"><pre class="language-bash"><code># Deploy a new application
+./deploy-portfolio-app.sh my-app 3003
+
+# Force rebuild an existing application
+./deploy-portfolio-app.sh chord-genesis 3001 rebuild
+
+# Deploy with automatic rebuild confirmation
+./deploy-portfolio-app.sh fineline 3008 rebuild
+</code></pre></div>
+
+<h3 id="deployment-workflow">🔄 Deployment Workflow</h3>
+
+<ol>
+<li><strong>Validation Phase</strong>
+<ul>
+<li>Validate command line arguments</li>
+<li>Check app directory exists</li>
+<li>Verify required files present</li>
+<li>Check port availability</li>
+</ul>
+</li>
+<li><strong>Container Management</strong>
+<ul>
+<li>Stop existing container if rebuilding</li>
+<li>Remove old container and cleanup</li>
+<li>Build new Docker image with proper base path</li>
+</ul>
+</li>
+<li><strong>Deployment Phase</strong>
+<ul>
+<li>Start new container with correct port mapping</li>
+<li>Configure restart policy for production</li>
+<li>Wait for container initialization</li>
+</ul>
+</li>
+<li><strong>Testing & Validation</strong>
+<ul>
+<li>Perform container health check</li>
+<li>Test nginx proxy accessibility</li>
+<li>Validate JavaScript asset delivery</li>
+<li>Generate deployment summary</li>
+</ul>
+</li>
+</ol>
+
+<h3 id="output-features">💬 Output Features</h3>
+
+<h4>Color-Coded Messages</h4>
+<ul>
+<li>🔵 <strong>Info</strong>: General process information</li>
+<li>🟢 <strong>Success</strong>: Successful operations</li>
+<li>🟡 <strong>Warning</strong>: Non-critical issues requiring attention</li>
+<li>🔴 <strong>Error</strong>: Critical failures requiring action</li>
+</ul>
+
+<h4>Deployment Summary</h4>
+<p>The script provides a comprehensive deployment summary including:</p>
+<ul>
+<li>App name and container details</li>
+<li>Port mappings and URLs</li>
+<li>Container status and health</li>
+<li>Useful management commands</li>
+<li>nginx configuration guidance</li>
+</ul>
+
+<h3 id="nginx-integration">🌐 nginx Integration</h3>
+
+<p>When nginx configuration is needed, the script automatically generates the required configuration block:</p>
+
+<div class="language-nginx extra-class"><pre class="language-nginx"><code># Auto-generated nginx configuration
+location /app-name {
+    return 301 /app-name/;
+}
+
+location /app-name/ {
+    proxy_pass http://127.0.0.1:PORT/;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_set_header X-Forwarded-Host $host;
+    proxy_set_header X-Forwarded-Port $server_port;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "upgrade";
+    proxy_connect_timeout 30s;
+    proxy_send_timeout 30s;
+    proxy_read_timeout 30s;
+}
+</code></pre></div>
+
+<h3 id="error-handling">🛡️ Error Handling & Recovery</h3>
+
+<h4>Common Issues & Solutions</h4>
+
+<p><strong>Port Already in Use</strong></p>
+<ul>
+<li>Script detects port conflicts automatically</li>
+<li>Offers interactive rebuild for same-app conflicts</li>
+<li>Prevents accidental overwrites of different apps</li>
+</ul>
+
+<p><strong>Missing Dependencies</strong></p>
+<ul>
+<li>Validates Dockerfile and package.json presence</li>
+<li>Provides helpful guidance for missing files</li>
+<li>References integration templates for setup</li>
+</ul>
+
+<p><strong>Container Health Issues</strong></p>
+<ul>
+<li>Performs automatic health checks after deployment</li>
+<li>Provides debugging commands when issues occur</li>
+<li>Tests both direct container access and nginx proxy</li>
+</ul>
+
+<h3 id="management-commands">🔧 Management Commands</h3>
+
+<p>The script provides useful commands for ongoing app management:</p>
+
+<div class="language-bash extra-class"><pre class="language-bash"><code># View application logs
+docker logs app-name
+
+# Restart application
+docker restart app-name
+
+# Rebuild application
+./deploy-portfolio-app.sh app-name port rebuild
+
+# Access container shell
+docker exec -it app-name sh
+
+# Monitor all containers
+docker ps | grep 300
+</code></pre></div>
+
+<h3 id="best-practices">📚 Best Practices</h3>
+
+<h4>Port Assignment Strategy</h4>
+<ul>
+<li><strong>Range</strong>: Use ports 3008-3020 for portfolio apps</li>
+<li><strong>Documentation</strong>: Keep a record of port assignments</li>
+<li><strong>Conflicts</strong>: Always check for conflicts before deployment</li>
+<li><strong>Testing</strong>: Test both direct and nginx access after deployment</li>
+</ul>
+
+<h4>Container Management</h4>
+<ul>
+<li><strong>Naming</strong>: Use consistent container names matching app names</li>
+<li><strong>Restart Policies</strong>: Always use <code>unless-stopped</code> for production</li>
+<li><strong>Resource Limits</strong>: Consider adding memory/CPU limits for production</li>
+<li><strong>Logs</strong>: Regularly monitor container logs for issues</li>
+</ul>
+
+<h4>Deployment Safety</h4>
+<ul>
+<li><strong>Testing</strong>: Always test deployment in development first</li>
+<li><strong>Backups</strong>: Consider backup strategies for persistent data</li>
+<li><strong>Rollback</strong>: Keep previous images for quick rollback if needed</li>
+<li><strong>Monitoring</strong>: Set up monitoring for production deployments</li>
+</ul>
+
+<h3 id="script-location">📍 Script Location & Access</h3>
+
+<p><strong>File Path:</strong> <code>/var/www/zaylegend/deploy-portfolio-app.sh</code></p>
+
+<p><strong>Usage Instructions:</strong></p>
+<ol>
+<li>Navigate to the zaylegend directory: <code>cd /var/www/zaylegend</code></li>
+<li>Make script executable: <code>chmod +x deploy-portfolio-app.sh</code></li>
+<li>Run deployment: <code>./deploy-portfolio-app.sh &lt;app-name&gt; &lt;port&gt; [rebuild]</code></li>
+</ol>
+
+<hr>
+
+<h2 id="complete-script-source">📄 Complete Script Source</h2>
+
+<p>Below is the complete source code of the portfolio deployment script:</p>
+
+<div class="language-bash extra-class"><pre class="language-bash"><code>#!/bin/bash
+set -e
+
+# Portfolio App Deployment Script
+# Usage: ./deploy-portfolio-app.sh &lt;app-name&gt; &lt;port&gt; [rebuild]
+
+APP_NAME="$1"
+APP_PORT="$2"
+REBUILD_FORCE="$3"
+
+# Color codes for output
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
+
+# Helper functions
+log_info() { echo -e "${BLUE}ℹ️  $1${NC}"; }
+log_success() { echo -e "${GREEN}✅ $1${NC}"; }
+log_warning() { echo -e "${YELLOW}⚠️  $1${NC}"; }
+log_error() { echo -e "${RED}❌ $1${NC}"; }
+
+# Validation
+if [[ -z "$APP_NAME" || -z "$APP_PORT" ]]; then
+    log_error "Usage: $0 &lt;app-name&gt; &lt;port&gt; [rebuild]"
+    echo ""
+    echo "Examples:"
+    echo "  $0 fineline 3003 rebuild     # Force rebuild fineline"
+    echo "  $0 new-app 3008              # Deploy new app"
+    echo ""
+    echo "Available ports: 3008-3020 (check with: docker ps | grep 300)"
+    exit 1
+fi
+
+APP_DIR="/var/www/zaylegend/apps/${APP_NAME}"
+BASE_PATH="/${APP_NAME}/"
+
+# Check if app directory exists
+if [[ ! -d "$APP_DIR" ]]; then
+    log_error "App directory not found: $APP_DIR"
+    log_info "Create the app directory and add your Vite project first"
+    exit 1
+fi
+
+# Check if port is available
+if docker ps | grep -q ":${APP_PORT}-&gt;"; then
+    if [[ "$REBUILD_FORCE" != "rebuild" ]]; then
+        log_warning "Port $APP_PORT is already in use"
+        EXISTING_CONTAINER=$(docker ps --format "table {{.Names}}\t{{.Ports}}" | grep ":${APP_PORT}-&gt;" | awk '{print $1}')
+        if [[ "$EXISTING_CONTAINER" == "$APP_NAME" ]]; then
+            log_info "Existing container '$APP_NAME' found on port $APP_PORT"
+            read -p "Do you want to rebuild it? (y/N): " -n 1 -r
+            echo
+            if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+                log_info "Deployment cancelled"
+                exit 0
+            fi
+            REBUILD_FORCE="rebuild"
+        else
+            log_error "Port $APP_PORT is used by different container: $EXISTING_CONTAINER"
+            exit 1
+        fi
+    fi
+fi
+
+log_info "Starting deployment of '$APP_NAME' on port $APP_PORT..."
+
+# Step 1: Navigate to app directory
+cd "$APP_DIR"
+log_info "Working in: $(pwd)"
+
+# Step 2: Check for required files
+if [[ ! -f "Dockerfile" ]]; then
+    log_error "Dockerfile not found in $APP_DIR"
+    log_info "Create a Dockerfile using the template in APP-INTEGRATION-TEMPLATE.md"
+    exit 1
+fi
+
+if [[ ! -f "package.json" ]]; then
+    log_error "package.json not found - is this a Node.js app?"
+    exit 1
+fi
+
+# Step 3: Stop and remove existing container if rebuilding
+if [[ "$REBUILD_FORCE" == "rebuild" ]] || docker ps -a | grep -q "\\b${APP_NAME}\\b"; then
+    log_info "Stopping existing container..."
+    docker stop "$APP_NAME" 2&gt;/dev/null || true
+    docker rm "$APP_NAME" 2&gt;/dev/null || true
+    log_success "Existing container removed"
+fi
+
+# Step 4: Build new image
+log_info "Building Docker image..."
+docker build \
+    --build-arg VITE_BASE_PATH="$BASE_PATH" \
+    -t "${APP_NAME}:latest" \
+    .
+
+log_success "Docker image built successfully"
+
+# Step 5: Start new container
+log_info "Starting container on port $APP_PORT..."
+docker run -d \
+    --name "$APP_NAME" \
+    -p "${APP_PORT}:80" \
+    --restart unless-stopped \
+    "${APP_NAME}:latest"
+
+# Step 6: Wait for container to be ready
+log_info "Waiting for container to start..."
+sleep 3
+
+# Step 7: Test container health
+if curl -f -s "http://localhost:${APP_PORT}/" &gt; /dev/null; then
+    log_success "Container is healthy and responding"
+else
+    log_error "Container health check failed"
+    log_info "Check logs with: docker logs $APP_NAME"
+    exit 1
+fi
+
+# Step 8: Test through nginx (if nginx is configured)
+NGINX_URL="https://zaylegend.com${BASE_PATH}"
+if curl -f -s "$NGINX_URL" &gt; /dev/null; then
+    log_success "App accessible through nginx: $NGINX_URL"
+else
+    log_warning "App not accessible through nginx yet"
+    log_info "You may need to add nginx configuration:"
+    echo ""
+    echo "Add this to /etc/nginx/conf.d/portfolio.conf:"
+    echo ""
+    echo "    # $APP_NAME"
+    echo "    location /$APP_NAME {"
+    echo "        return 301 /$APP_NAME/;"
+    echo "    }"
+    echo ""
+    echo "    location /$APP_NAME/ {"
+    echo "        proxy_pass http://127.0.0.1:$APP_PORT/;"
+    echo "        proxy_set_header Host \$host;"
+    echo "        proxy_set_header X-Real-IP \$remote_addr;"
+    echo "        proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;"
+    echo "        proxy_set_header X-Forwarded-Proto \$scheme;"
+    echo "        proxy_set_header X-Forwarded-Host \$host;"
+    echo "        proxy_set_header X-Forwarded-Port \$server_port;"
+    echo "        proxy_http_version 1.1;"
+    echo "        proxy_set_header Upgrade \$http_upgrade;"
+    echo "        proxy_set_header Connection \"upgrade\";"
+    echo "        proxy_connect_timeout 30s;"
+    echo "        proxy_send_timeout 30s;"
+    echo "        proxy_read_timeout 30s;"
+    echo "    }"
+    echo ""
+    echo "Then run: sudo nginx -t && sudo systemctl reload nginx"
+fi
+
+# Step 9: Show deployment summary
+echo ""
+log_success "🎉 Deployment completed successfully!"
+echo ""
+echo "📊 Deployment Summary:"
+echo "  App Name: $APP_NAME"
+echo "  Container Port: $APP_PORT"
+echo "  Base Path: $BASE_PATH"
+echo "  Container Status: $(docker inspect --format='{{.State.Status}}' $APP_NAME)"
+echo "  Direct Access: http://localhost:$APP_PORT/"
+echo "  Public URL: $NGINX_URL"
+echo ""
+echo "🔧 Useful Commands:"
+echo "  View logs: docker logs $APP_NAME"
+echo "  Restart: docker restart $APP_NAME"
+echo "  Rebuild: $0 $APP_NAME $APP_PORT rebuild"
+echo "  Shell access: docker exec -it $APP_NAME sh"
+echo ""
+
+# Step 10: Optional - Test JavaScript assets
+log_info "Testing JavaScript assets..."
+CONTAINER_HTML=$(curl -s "http://localhost:${APP_PORT}/")
+JS_FILE=$(echo "$CONTAINER_HTML" | grep -o 'src="/[^"]*\.js"' | head -1 | sed 's/src="//; s/"//')
+
+if [[ -n "$JS_FILE" ]]; then
+    if curl -f -s "http://localhost:${APP_PORT}${JS_FILE}" | head -c 100 | grep -q "var\|function\|import\|export"; then
+        log_success "JavaScript assets are serving correctly"
+    else
+        log_warning "JavaScript assets may not be serving correctly"
+    fi
+else
+    log_warning "No JavaScript files detected in HTML"
+fi
+
+log_info "Deployment script completed! 🚀"
+</code></pre></div>
+
+<hr>
+
+<h2 id="additional-automation-tools">🔧 Additional Automation Tools</h2>
+
+<h3 id="container-management">Container Management Commands</h3>
+
+<p>Essential Docker commands for managing deployed applications:</p>
+
+<div class="language-bash extra-class"><pre class="language-bash"><code># Monitor all portfolio containers
+docker ps | grep -E "300[0-9]"
+
+# View logs for specific app
+docker logs -f app-name
+
+# Restart all containers
+docker restart $(docker ps -q)
+
+# Clean up unused images
+docker image prune -f
+
+# Check container resource usage
+docker stats
+</code></pre></div>
+
+<h3 id="nginx-management">nginx Management</h3>
+
+<p>Commands for managing nginx configuration and testing:</p>
+
+<div class="language-bash extra-class"><pre class="language-bash"><code># Test nginx configuration
+sudo nginx -t
+
+# Reload nginx configuration
+sudo systemctl reload nginx
+
+# Check nginx status
+sudo systemctl status nginx
+
+# View nginx error logs
+sudo tail -f /var/log/nginx/error.log
+
+# Check proxy configuration
+curl -I https://zaylegend.com/app-name/
+</code></pre></div>
+
+<h3 id="monitoring-health-checks">Monitoring & Health Checks</h3>
+
+<p>Scripts for monitoring application health and performance:</p>
+
+<div class="language-bash extra-class"><pre class="language-bash"><code># Quick health check for all apps
+for port in {3001..3020}; do
+  if curl -f -s "http://localhost:$port/" &gt; /dev/null; then
+    echo "Port $port: ✅ Healthy"
+  else
+    echo "Port $port: ❌ Not responding"
+  fi
+done
+
+# Check disk usage
+df -h /var/www/zaylegend/
+
+# Monitor system resources
+htop
+</code></pre></div>
+
+<hr>
+
+<p><em>These automation tools provide a robust foundation for managing containerized portfolio applications with Docker and nginx. The deployment script ensures consistent, reliable deployments while providing comprehensive feedback and error handling throughout the process.</em></p>
+
+</div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/yetog/knowledge-base/edit/main/tech/automation-tools.md" target="_blank" rel="noopener noreferrer">Edit this page</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">10/11/2025, 12:00:00 AM</span></div></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="../assets/js/search.js" defer></script>
+  </body>
+
+</html>
