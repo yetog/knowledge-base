@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="apple-touch-icon" href="../favicon.ico">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Server Configuration | Isayah Young Burke</title>
+    <meta name="description" content="Nginx, SSL, and system configuration details">
+    <meta property="og:title" content="Isayah Young Burke - Infrastructure Documentation">
+    <meta property="og:description" content="Nginx, SSL, and system configuration details">
+    <meta property="og:image" content="https://portfoliowebsite.s3.us-central-1.ionoscloud.com/favicon.jpg">
+    <meta property="og:url" content="https://zaylegend.com/knowledge-base/infrastructure/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@zaylegend">
+    <meta name="twitter:creator" content="@zaylegend">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+    <div id="app">
+        <div class="theme-container">
+            <header class="navbar">
+                <a href="https://zaylegend.com/" class="home-link">
+                    <span class="site-name">Isayah Young Burke</span>
+                </a>
+                <div class="links">
+                    <nav class="nav-links">
+                        <div class="nav-item"><a href="https://zaylegend.com/blog/" class="nav-link">Blog</a></div>
+                        <div class="nav-item"><a href="../index.html" class="nav-link">Knowledge</a></div>
+                    </nav>
+                </div>
+            </header>
+            <aside class="sidebar">
+                <ul class="sidebar-links">
+                    <li><section class="sidebar-group depth-0">
+                        <p class="sidebar-heading open"><span>Infrastructure</span></p>
+                        <ul class="sidebar-links sidebar-group-items">
+                            <li><a class='sidebar-link' href='index.html'>Documentation Overview</a></li>
+                            <li><a class='sidebar-link' href='overview.html'>Architecture Overview</a></li>
+                            <li><a class='sidebar-link' href='ci-cd-pipeline.html'>CI/CD Pipeline</a></li>
+                            <li><a class='sidebar-link' href='docker-strategy.html'>Docker Strategy</a></li>
+                            <li><a class='sidebar-link' href='deployment-process.html'>Deployment Process</a></li>
+                            <li><a class='sidebar-link' href='server-configuration.html'>Server Configuration</a></li>
+                            <li><a class='sidebar-link' href='orchestration-guide.html'>Orchestration Guide</a></li>
+                        </ul>
+                    </section></li>
+                </ul>
+            </aside>
+            <main class="page">
+                <div class="theme-default-content content__default">
+                    <h1 id="server-configuration-documentation">Server Configuration Documentation</h1>
+<h2 id="server-infrastructure-overview">🖥️ Server Infrastructure Overview</h2>
+<h3 id="system-specifications"><strong>System Specifications</strong></h3>
+<ul>
+<li><strong>Operating System</strong>: Ubuntu Linux 5.15.0-151-generic</li>
+<li><strong>Server Architecture</strong>: x86_64</li>
+<li><strong>Deployment Environment</strong>: Cloud VPS</li>
+<li><strong>Domain</strong>: zaylegend.com (with SSL/TLS)</li>
+<li><strong>Primary Services</strong>: Nginx, Docker, Git, Node.js</li>
+</ul>
+<h3 id="directory-structure"><strong>Directory Structure</strong></h3>
+<pre><code>/var/www/zaylegend/
+├── apps/                          # Application containers
+│   ├── chord-genesis/            # Music generation app
+│   ├── dj-visualizer/           # Audio visualization
+│   ├── fineline/                # Personal journal
+│   ├── game-hub/               # Game collection
+│   ├── knowledge-base/         # Static knowledge base
+│   ├── spritegen/              # Sprite generator
+│   ├── voice-assistant/        # AI voice interface
+│   ├── contentforge/           # Content creation
+│   └── docker-compose.yml     # Service orchestration
+├── portfolio/                   # Main portfolio site
+├── scripts/                     # Management scripts
+├── infrastructure-docs/         # This documentation
+├── deploy-portfolio-app.sh     # App deployment script
+├── git-push-all.sh            # Git management script
+└── *.sh                       # Various utility scripts
+</code></pre>
+<h2 id="nginx-configuration">🌐 Nginx Configuration</h2>
+<h3 id="main-configuration-structure"><strong>Main Configuration Structure</strong></h3>
+<h4 id="primary-config-etcnginxconfdportfolioconf"><strong>Primary Config</strong>: <code>/etc/nginx/conf.d/portfolio.conf</code></h4>
+<pre><code class="language-nginx"># Auto-generated NGINX configuration for portfolio
+server {
+    listen 80;
+    listen 443 ssl http2;
+    server_name zaylegend.com www.zaylegend.com;
+
+    # SSL Configuration
+    ssl_certificate /etc/letsencrypt/live/zaylegend.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/zaylegend.com/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+
+    # Security Headers
+    add_header X-Frame-Options &quot;SAMEORIGIN&quot; always;
+    add_header X-Content-Type-Options &quot;nosniff&quot; always;
+    add_header Referrer-Policy &quot;no-referrer-when-downgrade&quot; always;
+    add_header X-XSS-Protection &quot;1; mode=block&quot; always;
+
+    # Performance Optimization
+    gzip on;
+    gzip_vary on;
+    gzip_min_length 1024;
+    gzip_types text/plain text/css text/xml text/javascript 
+               application/javascript application/xml+rss application/json;
+}
+</code></pre>
+<h3 id="service-routing-configuration"><strong>Service Routing Configuration</strong></h3>
+<h4 id="application-proxy-routes"><strong>Application Proxy Routes</strong></h4>
+<table>
+<thead>
+<tr>
+<th>Path</th>
+<th>Target</th>
+<th>Container</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/</code></td>
+<td><code>127.0.0.1:8080</code></td>
+<td>Portfolio Main</td>
+<td>Root portfolio site</td>
+</tr>
+<tr>
+<td><code>/knowledge-base/</code></td>
+<td>Static Files</td>
+<td>File System</td>
+<td>HTML knowledge base</td>
+</tr>
+<tr>
+<td><code>/chord-genesis/</code></td>
+<td><code>127.0.0.1:3001</code></td>
+<td>React App</td>
+<td>Music generation</td>
+</tr>
+<tr>
+<td><code>/fineline/</code></td>
+<td><code>127.0.0.1:3003</code></td>
+<td>React App</td>
+<td>Personal journal</td>
+</tr>
+<tr>
+<td><code>/game-hub/</code></td>
+<td><code>127.0.0.1:3004</code></td>
+<td>React App</td>
+<td>Game collection</td>
+</tr>
+<tr>
+<td><code>/dj-visualizer/</code></td>
+<td><code>127.0.0.1:3005</code></td>
+<td>React App</td>
+<td>Audio visualization</td>
+</tr>
+<tr>
+<td><code>/spritegen/</code></td>
+<td><code>127.0.0.1:3006</code></td>
+<td>React App</td>
+<td>Sprite generation</td>
+</tr>
+<tr>
+<td><code>/voice-assistant/</code></td>
+<td><code>127.0.0.1:3007</code></td>
+<td>React + API</td>
+<td>Voice interface</td>
+</tr>
+<tr>
+<td><code>/zen-reset/</code></td>
+<td><code>127.0.0.1:8081</code></td>
+<td>Static App</td>
+<td>Wellness tool</td>
+</tr>
+</tbody>
+</table>
+<h4 id="specialized-route-configurations"><strong>Specialized Route Configurations</strong></h4>
+<p><strong>Static File Serving (Knowledge Base):</strong></p>
+<pre><code class="language-nginx">location /knowledge-base/ {
+    alias /var/www/zaylegend/apps/knowledge-base/;
+    index index.html;
+    try_files $uri $uri/ $uri.html /knowledge-base/index.html;
+
+    # Cache optimization for static assets
+    location ~* \.(css|js|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)$ {
+        expires 1y;
+        add_header Cache-Control &quot;public, immutable&quot;;
+    }
+}
+</code></pre>
+<p><strong>WebSocket Support (Voice Assistant):</strong></p>
+<pre><code class="language-nginx">location /voice-assistant/ {
+    proxy_pass http://127.0.0.1:3007/;
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection &quot;upgrade&quot;;
+
+    # Extended timeouts for voice processing
+    proxy_connect_timeout 60s;
+    proxy_send_timeout 60s;
+    proxy_read_timeout 60s;
+
+    # Large file uploads for audio
+    client_max_body_size 50M;
+}
+</code></pre>
+<h2 id="docker-infrastructure">🐳 Docker Infrastructure</h2>
+<h3 id="container-runtime-configuration"><strong>Container Runtime Configuration</strong></h3>
+<h4 id="docker-service-status"><strong>Docker Service Status</strong></h4>
+<pre><code class="language-bash"># Docker daemon configuration
+● docker.service - Docker Application Container Engine
+     Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor preset: enabled)
+     Active: active (running) since Sat 2025-08-02 23:03:00 UTC; 3 months 19 days ago
+     Memory: 1.6G
+     CPU: 1h 48min 31.267s
+</code></pre>
+<h4 id="network-configuration"><strong>Network Configuration</strong></h4>
+<pre><code class="language-bash"># Docker networks
+docker network ls
+NETWORK ID     NAME                    DRIVER    SCOPE
+bridge         bridge                  bridge    local
+zaylegend-apps zaylegend-apps          bridge    local  
+voice-network  voice-assistant-network bridge    local
+</code></pre>
+<h3 id="container-resource-allocation"><strong>Container Resource Allocation</strong></h3>
+<h4 id="memory-and-cpu-limits"><strong>Memory and CPU Limits</strong></h4>
+<pre><code class="language-yaml"># Default resource constraints
+services:
+  app:
+    deploy:
+      resources:
+        limits:
+          memory: 128M
+          cpus: '0.5'
+        reservations:
+          memory: 64M
+          cpus: '0.25'
+</code></pre>
+<h4 id="health-check-configuration"><strong>Health Check Configuration</strong></h4>
+<pre><code class="language-yaml"># Standard health check pattern
+healthcheck:
+  test: [&quot;CMD&quot;, &quot;curl&quot;, &quot;-f&quot;, &quot;http://localhost/&quot;]
+  interval: 30s
+  timeout: 10s
+  retries: 3
+  start_period: 5s
+</code></pre>
+<h2 id="security-configuration">🔒 Security Configuration</h2>
+<h3 id="ssltls-setup"><strong>SSL/TLS Setup</strong></h3>
+<h4 id="lets-encrypt-configuration"><strong>Let's Encrypt Configuration</strong></h4>
+<pre><code class="language-bash"># Certificate location and renewal
+Certificates: /etc/letsencrypt/live/zaylegend.com/
+├── fullchain.pem    # Full certificate chain
+├── privkey.pem      # Private key
+├── cert.pem         # Domain certificate
+└── chain.pem        # Intermediate certificates
+
+# Auto-renewal via cron
+0 12 * * * /usr/bin/certbot renew --quiet
+</code></pre>
+<h4 id="ssl-security-settings"><strong>SSL Security Settings</strong></h4>
+<pre><code class="language-nginx"># Modern SSL configuration
+ssl_protocols TLSv1.2 TLSv1.3;
+ssl_ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384;
+ssl_prefer_server_ciphers off;
+
+# Security headers
+add_header Strict-Transport-Security &quot;max-age=63072000&quot; always;
+add_header X-Frame-Options &quot;SAMEORIGIN&quot; always;
+add_header X-Content-Type-Options &quot;nosniff&quot; always;
+</code></pre>
+<h3 id="ssh-configuration"><strong>SSH Configuration</strong></h3>
+<h4 id="key-based-authentication"><strong>Key-Based Authentication</strong></h4>
+<pre><code class="language-bash"># SSH keys for GitHub integration
+~/.ssh/
+├── github_actions_deploy      # Primary deployment key
+├── github_actions_deploy.pub  
+├── claude_code_ed25519        # Secondary key
+└── claude_code_ed25519.pub
+</code></pre>
+<h4 id="git-authentication-setup"><strong>Git Authentication Setup</strong></h4>
+<pre><code class="language-bash"># SSH config for GitHub
+Host github.com
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/github_actions_deploy
+    IdentitiesOnly yes
+</code></pre>
+<h2 id="service-management">⚙️ Service Management</h2>
+<h3 id="system-services"><strong>System Services</strong></h3>
+<h4 id="nginx-service"><strong>Nginx Service</strong></h4>
+<pre><code class="language-bash">● nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/lib/systemd/system/nginx.service; enabled; vendor preset: enabled)
+     Active: active (running) since Tue 2025-10-07 03:11:56 UTC; 1 month 15 days ago
+     Tasks: 7 (limit: 9435)
+     Memory: 23.8M
+     CPU: 51.365s
+</code></pre>
+<h4 id="service-control-commands"><strong>Service Control Commands</strong></h4>
+<pre><code class="language-bash"># Nginx management
+sudo systemctl start nginx
+sudo systemctl stop nginx
+sudo systemctl reload nginx      # Graceful config reload
+sudo systemctl restart nginx
+sudo systemctl status nginx
+
+# Docker management
+sudo systemctl start docker
+sudo systemctl enable docker
+sudo systemctl status docker
+</code></pre>
+<h3 id="log-management"><strong>Log Management</strong></h3>
+<h4 id="service-logs-location"><strong>Service Logs Location</strong></h4>
+<pre><code class="language-bash"># System logs
+/var/log/nginx/
+├── access.log      # HTTP access logs
+├── error.log       # Nginx error logs
+└── portfolio.log   # Custom application logs
+
+# Docker container logs
+docker logs &lt;container-name&gt;
+docker logs --follow --tail 50 &lt;container-name&gt;
+
+# System journal logs
+journalctl -u nginx.service
+journalctl -u docker.service
+</code></pre>
+<h4 id="log-rotation-configuration"><strong>Log Rotation Configuration</strong></h4>
+<pre><code class="language-bash"># Logrotate configuration for Nginx
+/etc/logrotate.d/nginx
+/var/log/nginx/*.log {
+    daily
+    missingok
+    rotate 52
+    compress
+    delaycompress
+    notifempty
+    create 644 www-data adm
+}
+</code></pre>
+<h2 id="monitoring-and-diagnostics">🔍 Monitoring and Diagnostics</h2>
+<h3 id="health-check-scripts"><strong>Health Check Scripts</strong></h3>
+<h4 id="system-health-monitoring"><strong>System Health Monitoring</strong></h4>
+<pre><code class="language-bash">#!/bin/bash
+# /var/www/zaylegend/scripts/health-check.sh
+
+echo &quot;=== System Health Check ===&quot;
+
+# Check disk space
+echo &quot;Disk Usage:&quot;
+df -h | grep -E &quot;/$|/var&quot;
+
+# Check memory usage  
+echo &quot;Memory Usage:&quot;
+free -h
+
+# Check running services
+echo &quot;Service Status:&quot;
+systemctl is-active nginx docker
+
+# Check container health
+echo &quot;Container Health:&quot;
+docker ps --format &quot;table {{.Names}}\t{{.Status}}\t{{.Ports}}&quot;
+
+# Check application endpoints
+echo &quot;Application Health:&quot;
+for port in 3001 3003 3004 3005 3006 3007; do
+    if curl -f -s &quot;http://localhost:$port/&quot; &gt; /dev/null; then
+        echo &quot;Port $port: ✅ Healthy&quot;
+    else
+        echo &quot;Port $port: ❌ Unhealthy&quot;
+    fi
+done
+</code></pre>
+<h3 id="performance-monitoring"><strong>Performance Monitoring</strong></h3>
+<h4 id="resource-usage-tracking"><strong>Resource Usage Tracking</strong></h4>
+<pre><code class="language-bash"># Real-time monitoring
+htop              # Interactive process viewer
+iotop             # Disk I/O monitoring  
+netstat -tulpn    # Network connections
+docker stats      # Container resource usage
+
+# System information
+uname -a          # System information
+uptime            # System uptime and load
+lscpu             # CPU information
+</code></pre>
+<h4 id="application-performance"><strong>Application Performance</strong></h4>
+<pre><code class="language-bash"># Response time monitoring
+curl -w &quot;@curl-format.txt&quot; -o /dev/null -s &quot;https://zaylegend.com/&quot;
+
+# Where curl-format.txt contains:
+#     time_namelookup:  %{time_namelookup}\n
+#     time_connect:     %{time_connect}\n
+#     time_appconnect:  %{time_appconnect}\n
+#     time_pretransfer: %{time_pretransfer}\n
+#     time_redirect:    %{time_redirect}\n
+#     time_starttransfer: %{time_starttransfer}\n
+#     ----------\n
+#     time_total:       %{time_total}\n
+</code></pre>
+<h2 id="maintenance-procedures">🛠️ Maintenance Procedures</h2>
+<h3 id="regular-maintenance-tasks"><strong>Regular Maintenance Tasks</strong></h3>
+<h4 id="weekly-maintenance"><strong>Weekly Maintenance</strong></h4>
+<pre><code class="language-bash">#!/bin/bash
+# /var/www/zaylegend/scripts/weekly-maintenance.sh
+
+# Update system packages
+sudo apt update &amp;&amp; sudo apt upgrade -y
+
+# Docker cleanup
+docker system prune -f
+docker image prune -a -f
+
+# Certificate renewal check
+sudo certbot renew --dry-run
+
+# Log rotation
+sudo logrotate -f /etc/logrotate.conf
+
+# Backup critical configs
+tar -czf /var/backups/portfolio-config-$(date +%Y%m%d).tar.gz \
+  /etc/nginx/conf.d/portfolio.conf \
+  /var/www/zaylegend/infrastructure-docs/ \
+  /var/www/zaylegend/*.sh
+</code></pre>
+<h4 id="emergency-procedures"><strong>Emergency Procedures</strong></h4>
+<p><strong>Service Recovery:</strong></p>
+<pre><code class="language-bash"># Quick service restart
+sudo systemctl restart nginx docker
+
+# Container recovery
+docker-compose -f /var/www/zaylegend/apps/docker-compose.yml restart
+
+# Full system recovery
+sudo reboot
+</code></pre>
+<p><strong>Backup and Restore:</strong></p>
+<pre><code class="language-bash"># Create full backup
+rsync -av --exclude 'node_modules' /var/www/zaylegend/ /backup/zaylegend-$(date +%Y%m%d)/
+
+# Restore from backup
+rsync -av /backup/zaylegend-latest/ /var/www/zaylegend/
+</code></pre>
+<hr />
+<p><strong>Server Location</strong>: Cloud VPS<br />
+<strong>Management Interface</strong>: SSH + Web Dashboard<br />
+<strong>Backup Strategy</strong>: Daily automated + Weekly manual<br />
+<strong>Monitoring</strong>: Real-time health checks + Log aggregation<br />
+<strong>Maintenance Window</strong>: Sunday 02:00-04:00 UTC</p>
+                </div>
+                <footer class="page-edit">
+                    <div class="last-updated">
+                        <span class="prefix">Last Updated:</span>
+                        <span class="time">November 2024</span>
+                    </div>
+                </footer>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

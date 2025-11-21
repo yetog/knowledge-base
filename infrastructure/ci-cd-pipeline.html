@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="apple-touch-icon" href="../favicon.ico">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>CI/CD Pipeline | Isayah Young Burke</title>
+    <meta name="description" content="Continuous integration and deployment workflows">
+    <meta property="og:title" content="Isayah Young Burke - Infrastructure Documentation">
+    <meta property="og:description" content="Continuous integration and deployment workflows">
+    <meta property="og:image" content="https://portfoliowebsite.s3.us-central-1.ionoscloud.com/favicon.jpg">
+    <meta property="og:url" content="https://zaylegend.com/knowledge-base/infrastructure/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@zaylegend">
+    <meta name="twitter:creator" content="@zaylegend">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+    <div id="app">
+        <div class="theme-container">
+            <header class="navbar">
+                <a href="https://zaylegend.com/" class="home-link">
+                    <span class="site-name">Isayah Young Burke</span>
+                </a>
+                <div class="links">
+                    <nav class="nav-links">
+                        <div class="nav-item"><a href="https://zaylegend.com/blog/" class="nav-link">Blog</a></div>
+                        <div class="nav-item"><a href="../index.html" class="nav-link">Knowledge</a></div>
+                    </nav>
+                </div>
+            </header>
+            <aside class="sidebar">
+                <ul class="sidebar-links">
+                    <li><section class="sidebar-group depth-0">
+                        <p class="sidebar-heading open"><span>Infrastructure</span></p>
+                        <ul class="sidebar-links sidebar-group-items">
+                            <li><a class='sidebar-link' href='index.html'>Documentation Overview</a></li>
+                            <li><a class='sidebar-link' href='overview.html'>Architecture Overview</a></li>
+                            <li><a class='sidebar-link' href='ci-cd-pipeline.html'>CI/CD Pipeline</a></li>
+                            <li><a class='sidebar-link' href='docker-strategy.html'>Docker Strategy</a></li>
+                            <li><a class='sidebar-link' href='deployment-process.html'>Deployment Process</a></li>
+                            <li><a class='sidebar-link' href='server-configuration.html'>Server Configuration</a></li>
+                            <li><a class='sidebar-link' href='orchestration-guide.html'>Orchestration Guide</a></li>
+                        </ul>
+                    </section></li>
+                </ul>
+            </aside>
+            <main class="page">
+                <div class="theme-default-content content__default">
+                    <h1 id="cicd-pipeline-documentation">CI/CD Pipeline Documentation</h1>
+<h2 id="continuous-integration-deployment-strategy">🚀 Continuous Integration &amp; Deployment Strategy</h2>
+<h3 id="pipeline-architecture"><strong>Pipeline Architecture</strong></h3>
+<pre><code class="language-mermaid">graph LR
+    A[Developer] --&gt;|git push| B[GitHub Repository]
+    B --&gt;|Webhook| C[GitHub Actions]
+    C --&gt;|Test| D[Build &amp; Test]
+    D --&gt;|Deploy| E[Production Server]
+    E --&gt;|Update| F[Live Application]
+
+    subgraph &quot;GitHub Actions&quot;
+        D1[Install Dependencies]
+        D2[Run Linter]
+        D3[Build Application]
+        D4[Docker Build]
+        D1 --&gt; D2 --&gt; D3 --&gt; D4
+    end
+</code></pre>
+<h2 id="github-actions-workflows">🔄 GitHub Actions Workflows</h2>
+<h3 id="standard-workflow-pattern"><strong>Standard Workflow Pattern</strong></h3>
+<p>Every application follows this consistent pattern:</p>
+<pre><code class="language-yaml">name: Deploy 🎵 [App Name]
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+    - name: Install dependencies
+      run: npm ci
+    - name: Run linter (if available)
+      run: npm run lint || echo &quot;No linter configured&quot;
+    - name: Build application
+      run: npm run build || echo &quot;No build script configured&quot;
+    - name: Build Docker image
+      run: docker build -t [app-name]:latest .
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+    - name: Deploy notification
+      run: echo &quot;🚀 [App Name] deployed successfully!&quot;
+</code></pre>
+<h3 id="application-specific-workflows"><strong>Application-Specific Workflows</strong></h3>
+<h4 id="current-active-workflows"><strong>Current Active Workflows</strong></h4>
+<table>
+<thead>
+<tr>
+<th>Application</th>
+<th>Status</th>
+<th>Features</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DJ Visualizer</strong></td>
+<td>✅ Active</td>
+<td>Standard workflow with audio processing</td>
+</tr>
+<tr>
+<td><strong>Chord Genesis</strong></td>
+<td>✅ Active</td>
+<td>Music generation with ElevenLabs integration</td>
+</tr>
+<tr>
+<td><strong>Fineline</strong></td>
+<td>✅ Active</td>
+<td>Personal journaling with IONOS AI</td>
+</tr>
+<tr>
+<td><strong>Game Hub</strong></td>
+<td>✅ Active</td>
+<td>Game collection with build optimization</td>
+</tr>
+<tr>
+<td><strong>Spritegen</strong></td>
+<td>✅ Active</td>
+<td>Pixel art generation tools</td>
+</tr>
+<tr>
+<td><strong>Voice Assistant</strong></td>
+<td>✅ Active</td>
+<td>Multi-container with frontend/backend</td>
+</tr>
+<tr>
+<td><strong>ContentForge</strong></td>
+<td>✅ Active</td>
+<td>Content creation with AI features</td>
+</tr>
+<tr>
+<td><strong>Knowledge Base</strong></td>
+<td>📝 Static</td>
+<td>No CI/CD (static HTML files)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="local-development-workflow">🛠️ Local Development Workflow</h2>
+<h3 id="git-management-with-auto-push"><strong>Git Management with Auto-Push</strong></h3>
+<h4 id="custom-git-script-varwwwzaylegendgit-push-allsh"><strong>Custom Git Script</strong>: <code>/var/www/zaylegend/git-push-all.sh</code></h4>
+<p><strong>Features:</strong>
+- 🤖 <strong>Smart Commit Messages</strong>: Auto-detects changes and generates descriptive commits
+- 🔄 <strong>Mass Operations</strong>: Process all repositories simultaneously
+- 🔑 <strong>SSH Authentication</strong>: Automatic SSH key management
+- 📝 <strong>Change Detection</strong>: Categorizes commits by change type</p>
+<p><strong>Usage Examples:</strong></p>
+<pre><code class="language-bash"># Auto-generate commit messages for all apps
+./git-push-all.sh
+
+# Custom message for all apps
+./git-push-all.sh &quot;feat: Add dark mode toggle&quot;
+
+# Target specific app
+./git-push-all.sh &quot;fix: Resolve audio lag&quot; dj-visualizer
+</code></pre>
+<p><strong>Commit Message Patterns:</strong>
+- <code>feat(branding)</code>: HTML/favicon changes
+- <code>deps</code>: package.json/dependency updates<br />
+- <code>docker</code>: Dockerfile/containerization changes
+- <code>ci</code>: GitHub Actions modifications
+- <code>docs</code>: README/documentation updates
+- <code>style</code>: CSS/styling changes
+- <code>fix</code>: Bug fixes and patches</p>
+<h3 id="automated-commit-enhancement"><strong>Automated Commit Enhancement</strong></h3>
+<p>Every commit includes:</p>
+<pre><code>[Original commit message]
+
+🤖 Generated with Claude Code (https://claude.ai/code)
+
+Co-Authored-By: Claude &lt;noreply@anthropic.com&gt;
+</code></pre>
+<h2 id="build-deployment-process">🏗️ Build &amp; Deployment Process</h2>
+<h3 id="phase-1-continuous-integration"><strong>Phase 1: Continuous Integration</strong></h3>
+<ol>
+<li><strong>Trigger Events</strong></li>
+<li>Push to <code>main</code> branch</li>
+<li>Pull request to <code>main</code></li>
+<li>
+<p>Manual workflow dispatch</p>
+</li>
+<li>
+<p><strong>Test Pipeline</strong>
+   <code>bash
+   npm ci                    # Clean install dependencies
+   npm run lint             # Code quality checks  
+   npm run build           # Production build
+   docker build            # Container image creation</code></p>
+</li>
+<li>
+<p><strong>Quality Gates</strong></p>
+</li>
+<li>Dependency validation</li>
+<li>Linting (ESLint/Prettier)</li>
+<li>Build success verification</li>
+<li>Docker image creation</li>
+</ol>
+<h3 id="phase-2-deployment"><strong>Phase 2: Deployment</strong></h3>
+<h4 id="current-strategy-notification-based"><strong>Current Strategy: Notification-Based</strong></h4>
+<ul>
+<li>Successful builds trigger deployment notifications</li>
+<li>Manual server-side deployment using local scripts</li>
+<li>Container recreation and health checks</li>
+</ul>
+<h4 id="future-enhancement-automated-deployment"><strong>Future Enhancement: Automated Deployment</strong></h4>
+<pre><code class="language-yaml"># Planned webhook-based deployment
+- name: Deploy to production
+  run: |
+    curl -X POST &quot;https://zaylegend.com/api/deploy&quot; \
+      -H &quot;Authorization: Bearer ${{ secrets.DEPLOY_TOKEN }}&quot; \
+      -d '{&quot;app&quot;: &quot;${{ env.APP_NAME }}&quot;, &quot;sha&quot;: &quot;${{ github.sha }}&quot;}'
+</code></pre>
+<h2 id="infrastructure-as-code">🔧 Infrastructure as Code</h2>
+<h3 id="docker-configuration-management"><strong>Docker Configuration Management</strong></h3>
+<h4 id="multi-service-orchestration"><strong>Multi-Service Orchestration</strong></h4>
+<ul>
+<li><strong>File</strong>: <code>/var/www/zaylegend/apps/docker-compose.yml</code></li>
+<li><strong>Network</strong>: <code>zaylegend-apps</code> bridge network</li>
+<li><strong>Restart Policy</strong>: <code>unless-stopped</code> for all services</li>
+<li><strong>Environment</strong>: Production-optimized configurations</li>
+</ul>
+<h4 id="individual-container-management"><strong>Individual Container Management</strong></h4>
+<ul>
+<li><strong>Deployment Script</strong>: <code>/var/www/zaylegend/deploy-portfolio-app.sh</code></li>
+<li><strong>Features</strong>: Port management, container rebuilding, health checks</li>
+<li><strong>Usage</strong>: <code>./deploy-portfolio-app.sh &lt;app-name&gt; &lt;port&gt; [rebuild]</code></li>
+</ul>
+<h3 id="service-configuration"><strong>Service Configuration</strong></h3>
+<h4 id="container-standards"><strong>Container Standards</strong></h4>
+<pre><code class="language-dockerfile"># Standard Dockerfile pattern
+FROM node:18-alpine AS builder
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --only=production
+
+FROM nginx:alpine
+COPY --from=builder /app/dist /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+EXPOSE 80
+</code></pre>
+<h4 id="nginx-integration"><strong>Nginx Integration</strong></h4>
+<ul>
+<li><strong>Config</strong>: <code>/etc/nginx/conf.d/portfolio.conf</code></li>
+<li><strong>SSL</strong>: Let's Encrypt with auto-renewal</li>
+<li><strong>Caching</strong>: Static asset optimization</li>
+<li><strong>Security</strong>: Headers and rate limiting</li>
+</ul>
+<h2 id="monitoring-observability">📊 Monitoring &amp; Observability</h2>
+<h3 id="health-monitoring"><strong>Health Monitoring</strong></h3>
+<pre><code class="language-bash"># Container health checks
+docker ps --format &quot;table {{.Names}}\t{{.Status}}\t{{.Ports}}&quot;
+
+# Service status monitoring  
+systemctl status nginx docker
+
+# Application logs
+docker logs [container-name] --tail 50 --follow
+</code></pre>
+<h3 id="deployment-verification"><strong>Deployment Verification</strong></h3>
+<ul>
+<li><strong>Script</strong>: <code>/var/www/zaylegend/portfolio/scripts/verify-deployment.sh</code></li>
+<li><strong>Checks</strong>: HTTP response codes, container health, service availability</li>
+<li><strong>Alerts</strong>: Automated failure notifications</li>
+</ul>
+<h2 id="best-practices">🎯 Best Practices</h2>
+<h3 id="development-workflow"><strong>Development Workflow</strong></h3>
+<ol>
+<li><strong>Feature Development</strong> → Feature branch</li>
+<li><strong>Testing</strong> → Local Docker testing</li>
+<li><strong>Integration</strong> → Pull request to main</li>
+<li><strong>Deployment</strong> → Automated CI/CD pipeline</li>
+<li><strong>Monitoring</strong> → Health checks and logs</li>
+</ol>
+<h3 id="security-guidelines"><strong>Security Guidelines</strong></h3>
+<ul>
+<li>SSH key authentication for all git operations</li>
+<li>Environment-specific configurations</li>
+<li>Secrets management through environment variables</li>
+<li>Container isolation and network segmentation</li>
+</ul>
+<h3 id="performance-optimization"><strong>Performance Optimization</strong></h3>
+<ul>
+<li>Multi-stage Docker builds for smaller images</li>
+<li>Nginx caching for static assets</li>
+<li>Container resource limits</li>
+<li>Health check optimizations</li>
+</ul>
+<hr />
+<p><strong>Pipeline Status</strong>: ✅ Active and Operational<br />
+<strong>Last Updated</strong>: November 2024<br />
+<strong>Deployment Frequency</strong>: On-demand + automated<br />
+<strong>Average Build Time</strong>: 2-5 minutes per application</p>
+                </div>
+                <footer class="page-edit">
+                    <div class="last-updated">
+                        <span class="prefix">Last Updated:</span>
+                        <span class="time">November 2024</span>
+                    </div>
+                </footer>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

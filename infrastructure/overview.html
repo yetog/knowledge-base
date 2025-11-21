@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="apple-touch-icon" href="../favicon.ico">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Infrastructure Overview | Isayah Young Burke</title>
+    <meta name="description" content="High-level architecture and technology stack overview">
+    <meta property="og:title" content="Isayah Young Burke - Infrastructure Documentation">
+    <meta property="og:description" content="High-level architecture and technology stack overview">
+    <meta property="og:image" content="https://portfoliowebsite.s3.us-central-1.ionoscloud.com/favicon.jpg">
+    <meta property="og:url" content="https://zaylegend.com/knowledge-base/infrastructure/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@zaylegend">
+    <meta name="twitter:creator" content="@zaylegend">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+    <div id="app">
+        <div class="theme-container">
+            <header class="navbar">
+                <a href="https://zaylegend.com/" class="home-link">
+                    <span class="site-name">Isayah Young Burke</span>
+                </a>
+                <div class="links">
+                    <nav class="nav-links">
+                        <div class="nav-item"><a href="https://zaylegend.com/blog/" class="nav-link">Blog</a></div>
+                        <div class="nav-item"><a href="../index.html" class="nav-link">Knowledge</a></div>
+                    </nav>
+                </div>
+            </header>
+            <aside class="sidebar">
+                <ul class="sidebar-links">
+                    <li><section class="sidebar-group depth-0">
+                        <p class="sidebar-heading open"><span>Infrastructure</span></p>
+                        <ul class="sidebar-links sidebar-group-items">
+                            <li><a class='sidebar-link' href='index.html'>Documentation Overview</a></li>
+                            <li><a class='sidebar-link' href='overview.html'>Architecture Overview</a></li>
+                            <li><a class='sidebar-link' href='ci-cd-pipeline.html'>CI/CD Pipeline</a></li>
+                            <li><a class='sidebar-link' href='docker-strategy.html'>Docker Strategy</a></li>
+                            <li><a class='sidebar-link' href='deployment-process.html'>Deployment Process</a></li>
+                            <li><a class='sidebar-link' href='server-configuration.html'>Server Configuration</a></li>
+                            <li><a class='sidebar-link' href='orchestration-guide.html'>Orchestration Guide</a></li>
+                        </ul>
+                    </section></li>
+                </ul>
+            </aside>
+            <main class="page">
+                <div class="theme-default-content content__default">
+                    <h1 id="portfolio-infrastructure-overview">Portfolio Infrastructure Overview</h1>
+<h2 id="architecture-summary">🏗️ Architecture Summary</h2>
+<p><strong>zaylegend.com</strong> is a comprehensive portfolio platform built with a modern microservices architecture, featuring:</p>
+<ul>
+<li><strong>Domain</strong>: zaylegend.com with SSL/TLS encryption</li>
+<li><strong>Server</strong>: Ubuntu Linux with Nginx reverse proxy</li>
+<li><strong>Containerization</strong>: Docker-based microservices</li>
+<li><strong>CI/CD</strong>: GitHub Actions workflows</li>
+<li><strong>Version Control</strong>: Git with automated deployment</li>
+</ul>
+<h2 id="technology-stack">🔧 Technology Stack</h2>
+<h3 id="core-infrastructure"><strong>Core Infrastructure</strong></h3>
+<ul>
+<li><strong>Operating System</strong>: Ubuntu Linux 5.15.0-151</li>
+<li><strong>Web Server</strong>: Nginx (reverse proxy + static file serving)</li>
+<li><strong>Containerization</strong>: Docker + Docker Compose</li>
+<li><strong>SSL</strong>: Let's Encrypt certificates</li>
+<li><strong>Process Management</strong>: systemd</li>
+</ul>
+<h3 id="application-stack"><strong>Application Stack</strong></h3>
+<ul>
+<li><strong>Frontend</strong>: React/Vite applications</li>
+<li><strong>Backend</strong>: Node.js services</li>
+<li><strong>Static Sites</strong>: Direct HTML serving</li>
+<li><strong>Networking</strong>: Docker bridge networks</li>
+</ul>
+<h2 id="service-architecture">🌐 Service Architecture</h2>
+<pre><code>Internet → zaylegend.com (SSL) → Nginx → Docker Services
+                                  ↓
+┌─────────────────────────────────────────────────────────────┐
+│                    Nginx Reverse Proxy                     │
+│                   (Port 80/443)                           │
+└─────────────────────────────────────────────────────────────┘
+                                  │
+    ┌─────────────────────────────────────────────────────────────┐
+    │                   Internal Routing                         │
+    └─────────────────────────────────────────────────────────────┘
+                                  │
+        ┌─────────┬─────────┬─────────┬─────────┬─────────┬─────────┐
+        │Portfolio│Knowledge│ Apps    │Services │Projects │ Tools   │
+        │  8080   │  Static │Containers│  API   │ Pages  │ Utils   │
+        └─────────┴─────────┴─────────┴─────────┴─────────┴─────────┘
+</code></pre>
+<h2 id="service-inventory">📊 Service Inventory</h2>
+<h3 id="running-containers"><strong>Running Containers</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Service</th>
+<th>Port</th>
+<th>Container</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Portfolio</td>
+<td>8080</td>
+<td>Static</td>
+<td>Active</td>
+<td>Main portfolio site</td>
+</tr>
+<tr>
+<td>Knowledge Base</td>
+<td>Static</td>
+<td>Files</td>
+<td>Active</td>
+<td>Static HTML knowledge base</td>
+</tr>
+<tr>
+<td>Chord Genesis</td>
+<td>3001</td>
+<td>React</td>
+<td>Active</td>
+<td>Music chord generation tool</td>
+</tr>
+<tr>
+<td>Fineline</td>
+<td>3003</td>
+<td>React</td>
+<td>Active</td>
+<td>Personal journaling app</td>
+</tr>
+<tr>
+<td>Game Hub</td>
+<td>3004</td>
+<td>React</td>
+<td>Active</td>
+<td>Retro game collection</td>
+</tr>
+<tr>
+<td>DJ Visualizer</td>
+<td>3005</td>
+<td>React</td>
+<td>Active</td>
+<td>Audio visualization tool</td>
+</tr>
+<tr>
+<td>Spritegen</td>
+<td>3006</td>
+<td>React</td>
+<td>Active</td>
+<td>Sprite generation tool</td>
+</tr>
+<tr>
+<td>Voice Assistant</td>
+<td>3007</td>
+<td>React+Node</td>
+<td>Unhealthy</td>
+<td>Voice AI interface</td>
+</tr>
+<tr>
+<td>Voice Assistant API</td>
+<td>5007</td>
+<td>Node.js</td>
+<td>Healthy</td>
+<td>Backend service</td>
+</tr>
+<tr>
+<td>Zen Reset</td>
+<td>8081</td>
+<td>Static</td>
+<td>Active</td>
+<td>Meditation/wellness app</td>
+</tr>
+</tbody>
+</table>
+<h2 id="deployment-strategy">🔄 Deployment Strategy</h2>
+<h3 id="container-orchestration"><strong>Container Orchestration</strong></h3>
+<ul>
+<li><strong>Primary</strong>: Individual Docker containers per service</li>
+<li><strong>Networking</strong>: Bridge networks for service isolation</li>
+<li><strong>Volumes</strong>: Local persistence for data</li>
+<li><strong>Restart Policy</strong>: <code>unless-stopped</code> for resilience</li>
+</ul>
+<h3 id="cicd-pipeline"><strong>CI/CD Pipeline</strong></h3>
+<ol>
+<li><strong>GitHub Actions</strong> trigger on <code>main</code> branch push</li>
+<li><strong>Test Phase</strong>: Linting, building, Docker image creation</li>
+<li><strong>Deploy Phase</strong>: Automated deployment notifications</li>
+<li><strong>Manual Deploy</strong>: Local server-side scripts</li>
+</ol>
+<h3 id="git-workflow"><strong>Git Workflow</strong></h3>
+<ul>
+<li><strong>Feature Branches</strong> → <strong>Main Branch</strong> → <strong>Production</strong></li>
+<li>Automated commit generation with change detection</li>
+<li>SSH key authentication for GitHub</li>
+<li>Local commits with automatic descriptions</li>
+</ul>
+<h2 id="security-features">🔐 Security Features</h2>
+<h3 id="ssltls-configuration"><strong>SSL/TLS Configuration</strong></h3>
+<ul>
+<li>Let's Encrypt certificates with auto-renewal</li>
+<li>HTTPS redirect for all traffic</li>
+<li>Security headers (HSTS, X-Frame-Options, CSP)</li>
+</ul>
+<h3 id="network-security"><strong>Network Security</strong></h3>
+<ul>
+<li>Internal service communication via Docker networks</li>
+<li>Nginx rate limiting and request filtering</li>
+<li>Isolated container environments</li>
+</ul>
+<h3 id="access-control"><strong>Access Control</strong></h3>
+<ul>
+<li>SSH key-based git authentication</li>
+<li>Container isolation</li>
+<li>Nginx proxy protection</li>
+</ul>
+<h2 id="performance-optimizations">📈 Performance Optimizations</h2>
+<h3 id="caching-strategy"><strong>Caching Strategy</strong></h3>
+<ul>
+<li>Static asset caching (1 year expiry)</li>
+<li>Gzip compression for text content</li>
+<li>Optimized Docker images</li>
+</ul>
+<h3 id="load-balancing"><strong>Load Balancing</strong></h3>
+<ul>
+<li>Nginx upstream configurations</li>
+<li>Health check monitoring</li>
+<li>Graceful service restarts</li>
+</ul>
+<h2 id="management-tools">🛠️ Management Tools</h2>
+<h3 id="deployment-scripts"><strong>Deployment Scripts</strong></h3>
+<ul>
+<li><code>/var/www/zaylegend/deploy-portfolio-app.sh</code> - Individual app deployment</li>
+<li><code>/var/www/zaylegend/git-push-all.sh</code> - Mass git operations</li>
+<li><code>/var/www/zaylegend/portfolio-master.sh</code> - Infrastructure management</li>
+</ul>
+<h3 id="monitoring-maintenance"><strong>Monitoring &amp; Maintenance</strong></h3>
+<ul>
+<li>Docker container health checks</li>
+<li>Nginx access/error logs</li>
+<li>Service status monitoring via systemctl</li>
+</ul>
+<h2 id="benefits-of-this-architecture">🎯 Benefits of This Architecture</h2>
+<h3 id="scalability"><strong>Scalability</strong></h3>
+<ul>
+<li>Independent service scaling</li>
+<li>Easy addition of new applications</li>
+<li>Horizontal scaling capabilities</li>
+</ul>
+<h3 id="maintainability"><strong>Maintainability</strong></h3>
+<ul>
+<li>Service isolation for easier debugging</li>
+<li>Standardized deployment processes</li>
+<li>Version-controlled infrastructure</li>
+</ul>
+<h3 id="reliability"><strong>Reliability</strong></h3>
+<ul>
+<li>Container restart policies</li>
+<li>Service health monitoring</li>
+<li>Automated backup through git</li>
+</ul>
+<h3 id="developer-experience"><strong>Developer Experience</strong></h3>
+<ul>
+<li>Consistent development environments</li>
+<li>Automated deployment workflows</li>
+<li>Comprehensive documentation</li>
+</ul>
+<hr />
+<p><strong>Last Updated</strong>: November 2024<br />
+<strong>Maintained By</strong>: Isayah Young Burke<br />
+<strong>Infrastructure Version</strong>: v2.0</p>
+                </div>
+                <footer class="page-edit">
+                    <div class="last-updated">
+                        <span class="prefix">Last Updated:</span>
+                        <span class="time">November 2024</span>
+                    </div>
+                </footer>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

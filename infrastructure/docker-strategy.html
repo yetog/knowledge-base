@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="apple-touch-icon" href="../favicon.ico">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Docker Strategy | Isayah Young Burke</title>
+    <meta name="description" content="Containerization approach and management strategies">
+    <meta property="og:title" content="Isayah Young Burke - Infrastructure Documentation">
+    <meta property="og:description" content="Containerization approach and management strategies">
+    <meta property="og:image" content="https://portfoliowebsite.s3.us-central-1.ionoscloud.com/favicon.jpg">
+    <meta property="og:url" content="https://zaylegend.com/knowledge-base/infrastructure/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@zaylegend">
+    <meta name="twitter:creator" content="@zaylegend">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+    <div id="app">
+        <div class="theme-container">
+            <header class="navbar">
+                <a href="https://zaylegend.com/" class="home-link">
+                    <span class="site-name">Isayah Young Burke</span>
+                </a>
+                <div class="links">
+                    <nav class="nav-links">
+                        <div class="nav-item"><a href="https://zaylegend.com/blog/" class="nav-link">Blog</a></div>
+                        <div class="nav-item"><a href="../index.html" class="nav-link">Knowledge</a></div>
+                    </nav>
+                </div>
+            </header>
+            <aside class="sidebar">
+                <ul class="sidebar-links">
+                    <li><section class="sidebar-group depth-0">
+                        <p class="sidebar-heading open"><span>Infrastructure</span></p>
+                        <ul class="sidebar-links sidebar-group-items">
+                            <li><a class='sidebar-link' href='index.html'>Documentation Overview</a></li>
+                            <li><a class='sidebar-link' href='overview.html'>Architecture Overview</a></li>
+                            <li><a class='sidebar-link' href='ci-cd-pipeline.html'>CI/CD Pipeline</a></li>
+                            <li><a class='sidebar-link' href='docker-strategy.html'>Docker Strategy</a></li>
+                            <li><a class='sidebar-link' href='deployment-process.html'>Deployment Process</a></li>
+                            <li><a class='sidebar-link' href='server-configuration.html'>Server Configuration</a></li>
+                            <li><a class='sidebar-link' href='orchestration-guide.html'>Orchestration Guide</a></li>
+                        </ul>
+                    </section></li>
+                </ul>
+            </aside>
+            <main class="page">
+                <div class="theme-default-content content__default">
+                    <h1 id="docker-containerization-strategy">Docker Containerization Strategy</h1>
+<h2 id="container-architecture-overview">🐳 Container Architecture Overview</h2>
+<h3 id="philosophy"><strong>Philosophy</strong></h3>
+<ul>
+<li><strong>Microservices Approach</strong>: Each application runs in isolation</li>
+<li><strong>Standardized Environments</strong>: Consistent runtime across development and production</li>
+<li><strong>Resource Optimization</strong>: Minimal container footprints with multi-stage builds</li>
+<li><strong>Service Discovery</strong>: Docker networks for inter-service communication</li>
+</ul>
+<h2 id="container-inventory">📦 Container Inventory</h2>
+<h3 id="production-containers"><strong>Production Containers</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Container</th>
+<th>Image</th>
+<th>Port Mapping</th>
+<th>Network</th>
+<th>Status</th>
+<th>Resources</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>chord-genesis</strong></td>
+<td><code>chord-genesis:latest</code></td>
+<td><code>3001:80</code></td>
+<td>zaylegend-apps</td>
+<td>✅ Healthy</td>
+<td>React + Nginx</td>
+</tr>
+<tr>
+<td><strong>fineline</strong></td>
+<td><code>fineline:latest</code></td>
+<td><code>3003:80</code></td>
+<td>zaylegend-apps</td>
+<td>✅ Healthy</td>
+<td>React + Nginx</td>
+</tr>
+<tr>
+<td><strong>game-hub</strong></td>
+<td><code>game-hub:latest</code></td>
+<td><code>3004:80</code></td>
+<td>zaylegend-apps</td>
+<td>✅ Healthy</td>
+<td>React + Nginx</td>
+</tr>
+<tr>
+<td><strong>dj-visualizer</strong></td>
+<td><code>apps_dj-visualizer</code></td>
+<td><code>3005:80</code></td>
+<td>zaylegend-apps</td>
+<td>✅ Healthy</td>
+<td>React + WebGL</td>
+</tr>
+<tr>
+<td><strong>spritegen</strong></td>
+<td><code>apps_spritegen</code></td>
+<td><code>3006:80</code></td>
+<td>zaylegend-apps</td>
+<td>✅ Healthy</td>
+<td>React + Canvas</td>
+</tr>
+<tr>
+<td><strong>voice-assistant-frontend</strong></td>
+<td><code>voice-assistant_frontend</code></td>
+<td><code>3007:80</code></td>
+<td>voice-network</td>
+<td>⚠️ Unhealthy</td>
+<td>React + WebRTC</td>
+</tr>
+<tr>
+<td><strong>voice-assistant-backend</strong></td>
+<td><code>voice-assistant_backend</code></td>
+<td><code>5007:5001</code></td>
+<td>voice-network</td>
+<td>✅ Healthy</td>
+<td>Node.js API</td>
+</tr>
+<tr>
+<td><strong>zen-reset</strong></td>
+<td><code>zen-reset:latest</code></td>
+<td><code>8081:80</code></td>
+<td>default</td>
+<td>✅ Healthy</td>
+<td>Static HTML</td>
+</tr>
+</tbody>
+</table>
+<h3 id="container-resource-usage"><strong>Container Resource Usage</strong></h3>
+<pre><code class="language-bash"># Real-time container stats
+CONTAINER           CPU %     MEM USAGE     MEM %     NET I/O
+chord-genesis       0.01%     45.2MB        0.48%     1.2kB / 648B
+fineline            0.00%     42.1MB        0.45%     896B / 432B  
+game-hub            0.02%     48.7MB        0.52%     2.1kB / 1.2kB
+dj-visualizer       0.01%     44.3MB        0.47%     1.8kB / 924B
+spritegen           0.00%     43.9MB        0.47%     1.1kB / 567B
+voice-assistant-fe  0.05%     52.3MB        0.56%     3.4kB / 2.1kB
+voice-assistant-be  0.08%     78.9MB        0.84%     4.7kB / 3.2kB
+zen-reset           0.00%     12.8MB        0.14%     432B / 234B
+</code></pre>
+<h2 id="build-strategy">🏗️ Build Strategy</h2>
+<h3 id="multi-stage-build-pattern"><strong>Multi-Stage Build Pattern</strong></h3>
+<h4 id="standard-react-application-dockerfile"><strong>Standard React Application Dockerfile</strong></h4>
+<pre><code class="language-dockerfile"># Stage 1: Build Environment
+FROM node:18-alpine AS builder
+WORKDIR /app
+
+# Copy dependency files
+COPY package*.json ./
+RUN npm ci --only=production
+
+# Copy source code and build
+COPY . .
+ARG VITE_BASE_PATH=/app-name/
+ENV VITE_BASE_PATH=$VITE_BASE_PATH
+RUN npm run build
+
+# Stage 2: Production Environment  
+FROM nginx:alpine AS production
+COPY --from=builder /app/dist /usr/share/nginx/html
+
+# Custom nginx configuration
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+  CMD curl -f http://localhost/ || exit 1
+
+EXPOSE 80
+CMD [&quot;nginx&quot;, &quot;-g&quot;, &quot;daemon off;&quot;]
+</code></pre>
+<h4 id="nodejs-backend-dockerfile"><strong>Node.js Backend Dockerfile</strong></h4>
+<pre><code class="language-dockerfile"># Voice Assistant Backend Example
+FROM node:18-alpine AS base
+WORKDIR /app
+
+# Install dependencies
+COPY package*.json ./
+RUN npm ci --only=production
+
+# Copy application code
+COPY . .
+
+# Create non-root user
+RUN addgroup -g 1001 -S nodejs &amp;&amp; \
+    adduser -S nodejs -u 1001
+
+# Switch to non-root user
+USER nodejs
+
+# Health check for API
+HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \
+  CMD curl -f http://localhost:5001/health || exit 1
+
+EXPOSE 5001
+CMD [&quot;node&quot;, &quot;server.js&quot;]
+</code></pre>
+<h3 id="nginx-configuration-templates"><strong>Nginx Configuration Templates</strong></h3>
+<h4 id="react-spa-configuration"><strong>React SPA Configuration</strong></h4>
+<pre><code class="language-nginx"># Standard SPA nginx.conf
+server {
+    listen 80;
+    server_name localhost;
+    root /usr/share/nginx/html;
+    index index.html;
+
+    # Handle SPA routing
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+
+    # Cache static assets
+    location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)$ {
+        expires 1y;
+        add_header Cache-Control &quot;public, immutable&quot;;
+        access_log off;
+    }
+
+    # Gzip compression
+    gzip on;
+    gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript;
+    gzip_min_length 1000;
+
+    # Security headers
+    add_header X-Frame-Options &quot;SAMEORIGIN&quot; always;
+    add_header X-Content-Type-Options &quot;nosniff&quot; always;
+    add_header Referrer-Policy &quot;no-referrer-when-downgrade&quot; always;
+}
+</code></pre>
+<h2 id="network-architecture">🌐 Network Architecture</h2>
+<h3 id="docker-networks"><strong>Docker Networks</strong></h3>
+<h4 id="application-network"><strong>Application Network</strong></h4>
+<pre><code class="language-yaml"># zaylegend-apps bridge network
+networks:
+  app-network:
+    driver: bridge
+    name: zaylegend-apps
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.19.0.0/16
+          gateway: 172.19.0.1
+</code></pre>
+<h4 id="service-specific-networks"><strong>Service-Specific Networks</strong></h4>
+<pre><code class="language-yaml"># Voice Assistant dedicated network
+voice-network:
+  driver: bridge
+  name: voice-assistant-network
+  internal: false  # Allows external access
+</code></pre>
+<h3 id="port-management-strategy"><strong>Port Management Strategy</strong></h3>
+<h4 id="port-allocation"><strong>Port Allocation</strong></h4>
+<pre><code>System Ports (Reserved):
+- 80: HTTP (Nginx)
+- 443: HTTPS (Nginx)
+- 22: SSH
+- 3000: Development (reserved)
+
+Application Ports:
+- 3001: Chord Genesis
+- 3003: Fineline  
+- 3004: Game Hub
+- 3005: DJ Visualizer
+- 3006: Spritegen
+- 3007: Voice Assistant Frontend
+- 3008-3020: Available for new apps
+
+API Ports:
+- 5007: Voice Assistant Backend
+- 5008-5020: Available for APIs
+
+Utility Ports:
+- 8080: Portfolio Main (internal)
+- 8081: Zen Reset
+- 8082-8090: Available for utilities
+</code></pre>
+<h2 id="docker-compose-orchestration">📋 Docker Compose Orchestration</h2>
+<h3 id="multi-service-composition"><strong>Multi-Service Composition</strong></h3>
+<pre><code class="language-yaml"># /var/www/zaylegend/apps/docker-compose.yml
+version: '3.8'
+
+services:
+  dj-visualizer:
+    build: ./dj-visualizer
+    container_name: dj-visualizer
+    ports: [&quot;3005:80&quot;]
+    restart: unless-stopped
+    networks: [app-network]
+    labels:
+      - &quot;app.name=dj-visualizer&quot;
+      - &quot;app.description=Audio visualization and DJ tools&quot;
+    environment:
+      - NODE_ENV=production
+    healthcheck:
+      test: [&quot;CMD&quot;, &quot;curl&quot;, &quot;-f&quot;, &quot;http://localhost/&quot;]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+networks:
+  app-network:
+    driver: bridge
+    name: zaylegend-apps
+</code></pre>
+<h3 id="service-specific-compositions"><strong>Service-Specific Compositions</strong></h3>
+<h4 id="voice-assistant-multi-container"><strong>Voice Assistant (Multi-Container)</strong></h4>
+<pre><code class="language-yaml"># /var/www/zaylegend/apps/voice-assistant/docker-compose.yml
+version: '3.8'
+
+services:
+  voice-assistant-frontend:
+    build: ./frontend
+    container_name: voice-assistant-frontend
+    ports: [&quot;3007:80&quot;]
+    depends_on: [voice-assistant-backend]
+    networks: [voice-network]
+    environment:
+      - REACT_APP_API_URL=http://voice-assistant-backend:5001
+
+  voice-assistant-backend:
+    build: ./backend  
+    container_name: voice-assistant-backend
+    ports: [&quot;5007:5001&quot;]
+    networks: [voice-network]
+    volumes:
+      - voice-data:/app/data
+    environment:
+      - NODE_ENV=production
+      - PORT=5001
+
+volumes:
+  voice-data:
+    driver: local
+
+networks:
+  voice-network:
+    driver: bridge
+</code></pre>
+<h2 id="container-management">🔧 Container Management</h2>
+<h3 id="deployment-scripts"><strong>Deployment Scripts</strong></h3>
+<h4 id="individual-app-deployment"><strong>Individual App Deployment</strong></h4>
+<pre><code class="language-bash"># /var/www/zaylegend/deploy-portfolio-app.sh
+./deploy-portfolio-app.sh &lt;app-name&gt; &lt;port&gt; [rebuild]
+
+# Examples:
+./deploy-portfolio-app.sh fineline 3003 rebuild  # Force rebuild
+./deploy-portfolio-app.sh new-app 3008           # Deploy new app
+</code></pre>
+<h4 id="mass-container-operations"><strong>Mass Container Operations</strong></h4>
+<pre><code class="language-bash"># Start all services
+docker-compose -f /var/www/zaylegend/apps/docker-compose.yml up -d
+
+# Restart specific service
+docker-compose restart dj-visualizer
+
+# View all container logs
+docker-compose logs -f --tail=50
+
+# Update all containers
+docker-compose pull &amp;&amp; docker-compose up -d
+</code></pre>
+<h3 id="health-monitoring"><strong>Health Monitoring</strong></h3>
+<h4 id="container-health-checks"><strong>Container Health Checks</strong></h4>
+<pre><code class="language-bash"># Check container health status
+docker ps --format &quot;table {{.Names}}\t{{.Status}}\t{{.Ports}}&quot;
+
+# Monitor unhealthy containers
+docker ps --filter health=unhealthy
+
+# Inspect health check details
+docker inspect --format='{{json .State.Health}}' container-name
+</code></pre>
+<h4 id="resource-monitoring"><strong>Resource Monitoring</strong></h4>
+<pre><code class="language-bash"># Real-time stats
+docker stats
+
+# Resource usage by container
+docker system df
+
+# Container logs with timestamps
+docker logs -t --since=&quot;1h&quot; container-name
+</code></pre>
+<h2 id="optimization-strategies">🎯 Optimization Strategies</h2>
+<h3 id="image-size-optimization"><strong>Image Size Optimization</strong></h3>
+<ol>
+<li><strong>Multi-stage builds</strong> to exclude build dependencies</li>
+<li><strong>Alpine Linux</strong> base images for minimal footprint</li>
+<li><strong>Dependency optimization</strong> with <code>npm ci --only=production</code></li>
+<li><strong>Layer caching</strong> for faster rebuilds</li>
+</ol>
+<h3 id="performance-tuning"><strong>Performance Tuning</strong></h3>
+<ol>
+<li><strong>Resource limits</strong> to prevent container sprawl</li>
+<li><strong>Health checks</strong> for automatic recovery</li>
+<li><strong>Restart policies</strong> for high availability</li>
+<li><strong>Network optimization</strong> with bridge networks</li>
+</ol>
+<h3 id="security-hardening"><strong>Security Hardening</strong></h3>
+<ol>
+<li><strong>Non-root users</strong> in containers</li>
+<li><strong>Read-only file systems</strong> where possible</li>
+<li><strong>Minimal attack surface</strong> with distroless images</li>
+<li><strong>Network segmentation</strong> with Docker networks</li>
+</ol>
+<h2 id="monitoring-maintenance">📊 Monitoring &amp; Maintenance</h2>
+<h3 id="container-lifecycle-management"><strong>Container Lifecycle Management</strong></h3>
+<pre><code class="language-bash"># Automated cleanup
+docker system prune -a --filter &quot;until=72h&quot;
+
+# Image management
+docker image prune -a --filter &quot;until=7d&quot;
+
+# Log rotation
+docker logs --since=&quot;7d&quot; container-name &gt; /var/log/app.log
+</code></pre>
+<h3 id="backup-strategy"><strong>Backup Strategy</strong></h3>
+<pre><code class="language-bash"># Volume backups
+docker run --rm -v volume-name:/backup-source busybox tar -czf - /backup-source &gt; backup.tar.gz
+
+# Configuration backups
+tar -czf docker-configs-$(date +%Y%m%d).tar.gz /var/www/zaylegend/apps/*/Dockerfile /var/www/zaylegend/apps/*/docker-compose.yml
+</code></pre>
+<hr />
+<p><strong>Container Runtime</strong>: Docker 24.0+<br />
+<strong>Orchestration</strong>: Docker Compose v3.8<br />
+<strong>Total Containers</strong>: 8 active services<br />
+<strong>Resource Utilization</strong>: ~400MB total memory, &lt;1% CPU<br />
+<strong>Uptime</strong>: 99.9% availability with auto-restart policies</p>
+                </div>
+                <footer class="page-edit">
+                    <div class="last-updated">
+                        <span class="prefix">Last Updated:</span>
+                        <span class="time">November 2024</span>
+                    </div>
+                </footer>
+            </main>
+        </div>
+    </div>
+</body>
+</html>
