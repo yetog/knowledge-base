@@ -20,8 +20,7 @@ The site is served by nginx at `https://zaylegend.com/knowledge-base/`. The depl
 - [x] Remove `ethics-maci.html` stub (real content lives at `philosophy/ethics.html`)
 - [x] Remove `.DS_Store` from git tracking
 - [x] Update `.gitignore` to exclude `.DS_Store`, `*.bak`, and future MkDocs `site/` build output
-- [ ] Link `infrastructure/` pages in the sidebar (or merge into `tech/`)
-  - Currently orphaned: `ci-cd-pipeline.html`, `deployment-process.html`, `docker-strategy.html`, `orchestration-guide.html`, `overview.html`, `server-configuration.html`
+- [x] Resolve `infrastructure/` orphaned pages — will be a sub-section under Tech in Phase 2
 
 ---
 
@@ -45,30 +44,34 @@ knowledge-base/
   docs/
     index.md
     tech/
-      ai-development.md
-      automation-tools.md
-      development-workflows.md
-      session-recaps.md
-      today-i-learned.md
-      docker.md
-      postgresql.md
-      bash-profile.md
-      macos-tips.md
-      regex.md
-      html-cheatsheet.md
-      vscode-snippets.md
-      seo.md
-      webhook.md
-      secrets-management-sops.md
-      mental-models.md
-      awesome-list.md
-    infrastructure/         ← currently orphaned, will be linked
-      overview.md
-      docker-strategy.md
-      ci-cd-pipeline.md
-      deployment-process.md
-      orchestration-guide.md
-      server-configuration.md
+      index.md
+      ai-automation/        ← sub-section
+        ai-development.md
+        automation-tools.md
+        development-workflows.md
+      infrastructure/       ← sub-section (currently orphaned pages, now linked)
+        overview.md
+        docker-strategy.md
+        ci-cd-pipeline.md
+        deployment-process.md
+        orchestration-guide.md
+        server-configuration.md
+      cheatsheets/          ← sub-section
+        docker.md
+        postgresql.md
+        bash-profile.md
+        macos-tips.md
+        regex.md
+        html-cheatsheet.md
+        vscode-snippets.md
+        seo.md
+        webhook.md
+        secrets-management-sops.md
+      reference/            ← sub-section
+        session-recaps.md
+        today-i-learned.md
+        mental-models.md
+        awesome-list.md
     business/
       hiring.md
       management.md
@@ -132,7 +135,34 @@ knowledge-base/
    pip install mkdocs-material
    ```
 
-2. **Create `mkdocs.yml`** with navigation matching the structure above
+2. **Create `mkdocs.yml`** with navigation matching the structure above. Example Tech section:
+   ```yaml
+   nav:
+     - Tech:
+       - AI & Automation:
+         - AI Development: tech/ai-automation/ai-development.md
+         - Automation Tools: tech/ai-automation/automation-tools.md
+         - Development Workflows: tech/ai-automation/development-workflows.md
+       - Infrastructure:
+         - Overview: tech/infrastructure/overview.md
+         - CI/CD Pipeline: tech/infrastructure/ci-cd-pipeline.md
+         - Docker Strategy: tech/infrastructure/docker-strategy.md
+         - Deployment Process: tech/infrastructure/deployment-process.md
+         - Orchestration Guide: tech/infrastructure/orchestration-guide.md
+         - Server Configuration: tech/infrastructure/server-configuration.md
+       - Cheatsheets:
+         - Docker: tech/cheatsheets/docker.md
+         - PostgreSQL: tech/cheatsheets/postgresql.md
+         - Regex: tech/cheatsheets/regex.md
+         - Bash Profile: tech/cheatsheets/bash-profile.md
+         - HTML: tech/cheatsheets/html-cheatsheet.md
+         - VSCode Snippets: tech/cheatsheets/vscode-snippets.md
+       - Reference:
+         - Session Recaps: tech/reference/session-recaps.md
+         - Today I Learned: tech/reference/today-i-learned.md
+         - Mental Models: tech/reference/mental-models.md
+         - Awesome List: tech/reference/awesome-list.md
+   ```
 
 3. **Convert HTML → Markdown** — extract the content from each page's `content__default` div and convert to `.md`
 
@@ -204,4 +234,3 @@ That's it. GitHub Actions builds and deploys automatically.
 
 - **Theme:** Keep current blue/green color scheme? MkDocs Material supports full color customization via `mkdocs.yml`.
 - **Domain:** Does `knowledge-base/` path need to stay the same? (It can — MkDocs supports subdirectory serving.)
-- **Infrastructure pages:** Merge into `tech/` or keep as a separate section?
