@@ -1,42 +1,31 @@
-name: Deploy Knowledge Base to Production
+name: Build and Deploy Knowledge Base
 
 on:
   push:
     branches: [ main ]
-  workflow_dispatch:  # Allow manual triggering
+  workflow_dispatch:
 
 jobs:
-  deploy-to-server:
+  build-and-deploy:
     runs-on: ubuntu-latest
-    name: 🚀 Deploy to Production Server
-    
+    name: Build (MkDocs) and Deploy to Production
+
     steps:
-    - name: 📥 Checkout repository
+    - name: Checkout repository
       uses: actions/checkout@v4
-      
-    - name: 🔍 Validate HTML files
-      run: |
-        echo "🔍 Validating HTML structure..."
-        total_files=$(find . -name "*.html" -not -path "./.git/*" | wc -l)
-        echo "Found $total_files HTML files to validate"
-        
-        # Basic validation
-        for file in $(find . -name "*.html" -not -path "./.git/*"); do
-          if ! grep -q "<!DOCTYPE html>" "$file"; then
-            echo "⚠️  Missing DOCTYPE in: $file"
-          fi
-        done
-        
-    - name: 🔒 Security scan
-      run: |
-        echo "🔒 Scanning for security issues..."
-        if grep -r "password\|secret\|api.*key" --include="*.html" --include="*.js" --include="*.css" . | grep -v "example\|demo\|placeholder"; then
-          echo "⚠️  Potential sensitive data found - review before deploy"
-          exit 1
-        fi
-        echo "✅ Security scan passed"
-        
-    - name: 🚀 Deploy to production server
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x'
+
+    - name: Install MkDocs Material
+      run: pip install mkdocs-material
+
+    - name: Build site
+      run: mkdocs build --strict
+
+    - name: Deploy to production server
       uses: appleboy/ssh-action@v0.1.7
       with:
         host: ${{ secrets.HOST }}
@@ -44,78 +33,36 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         script: |
           set -e
-          echo "🚀 Starting deployment to knowledge base..."
-          
-          # Navigate to knowledge base directory
-          cd /var/www/zaylegend/apps/knowledge-base
-          
-          # Backup current version
-          sudo cp -r . ../knowledge-base-backup-$(date +%Y%m%d-%H%M%S) || echo "Backup creation failed, continuing..."
-          
-          # Fetch and pull latest changes
-          echo "📥 Fetching latest changes from GitHub..."
-          git fetch origin main
-          git reset --hard origin/main
-          
-          # Ensure correct permissions
-          echo "🔧 Setting correct permissions..."
-          sudo chown -R langchain:www-data .
-          find . -type f -name "*.html" -exec chmod 644 {} \;
-          find . -type f -name "*.css" -exec chmod 644 {} \;
-          find . -type f -name "*.js" -exec chmod 644 {} \;
-          find . -type d -exec chmod 755 {} \;
-          
-          # Test nginx configuration
-          echo "🔍 Testing nginx configuration..."
-          sudo nginx -t
-          
-          # Reload nginx to ensure changes take effect
-          echo "🔄 Reloading nginx..."
-          sudo systemctl reload nginx
-          
-          echo "✅ Knowledge base deployment completed successfully!"
-          echo "🌐 Live at: https://zaylegend.com/knowledge-base/"
-          
-    - name: 🎯 Deployment summary
-      run: |
-        echo "📊 Deployment Summary"
-        echo "===================="
-        echo "🎯 Repository: knowledge-base"
-        echo "🌍 Environment: Production"
-        echo "📅 Deployed at: $(date)"
-        echo "🔗 Live URL: https://zaylegend.com/knowledge-base/"
-        echo "✅ Status: Success"
+          echo "Backing up current site..."
+          sudo cp -r /var/www/zaylegend/apps/knowledge-base /var/www/zaylegend/apps/knowledge-base-backup-$(date +%Y%m%d-%H%M%S) || echo "Backup failed, continuing..."
 
-  update-portfolio-submodule:
-    needs: deploy-to-server
-    runs-on: ubuntu-latest
-    name: 📦 Update Portfolio Submodule
-    
-    steps:
-    - name: 🔄 Update portfolio submodule
+    - name: Copy built site to server
+      uses: appleboy/scp-action@v0.1.7
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.SSH_KEY }}
+        source: "site/"
+        target: "/var/www/zaylegend/apps/knowledge-base/"
+        strip_components: 1
+
+    - name: Reload nginx
       uses: appleboy/ssh-action@v0.1.7
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.SSH_KEY }}
         script: |
-          echo "📦 Updating portfolio submodule..."
-          cd /var/www/zaylegend/portfolio
-          
-          # Update the submodule to point to latest main
-          git submodule update --remote apps/knowledge-base
-          git add apps/knowledge-base
-          
-          # Only commit if there are changes
-          if ! git diff --cached --quiet; then
-            git commit -m "🤖 Auto-update knowledge-base submodule from main branch
+          sudo chown -R langchain:www-data /var/www/zaylegend/apps/knowledge-base/
+          find /var/www/zaylegend/apps/knowledge-base/ -type f -exec chmod 644 {} \;
+          find /var/www/zaylegend/apps/knowledge-base/ -type d -exec chmod 755 {} \;
+          sudo nginx -t
+          sudo systemctl reload nginx
+          echo "Deployed successfully to https://zaylegend.com/knowledge-base/"
 
-            Updated knowledge-base submodule to latest main branch.
-            This ensures portfolio repo stays in sync with knowledge base updates.
-            
-            🤖 Generated with [GitHub Actions]"
-            
-            echo "✅ Portfolio submodule updated successfully"
-          else
-            echo "ℹ️  No submodule changes to commit"
-          fi
+    - name: Deployment summary
+      run: |
+        echo "Repository: ${{ github.repository }}"
+        echo "Branch: ${{ github.ref_name }}"
+        echo "Commit: ${{ github.sha }}"
+        echo "Live at: https://zaylegend.com/knowledge-base/"

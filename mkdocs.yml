@@ -1,0 +1,159 @@
+site_name: Isayah Young Burke
+site_url: https://zaylegend.com/knowledge-base/
+site_description: Personal knowledge base and learning insights by Isayah Young Burke
+site_author: Isayah Young Burke
+
+repo_url: https://github.com/yetog/knowledge-base
+repo_name: yetog/knowledge-base
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: blue
+      accent: teal
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: blue
+      accent: teal
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  font:
+    text: Inter
+    code: JetBrains Mono
+  features:
+    - navigation.tabs           # top-level sections as tabs
+    - navigation.tabs.sticky    # tabs stay visible on scroll
+    - navigation.sections       # expand sections in sidebar
+    - navigation.expand         # auto-expand active section
+    - navigation.top            # back-to-top button
+    - navigation.indexes        # section index pages
+    - search.suggest
+    - search.highlight
+    - content.code.copy         # copy button on code blocks
+    - content.action.edit       # edit page link
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
+
+  - Tech:
+    - AI & Automation:
+      - AI Development: tech/ai-automation/ai-development.md
+      - Automation Tools: tech/ai-automation/automation-tools.md
+      - Development Workflows: tech/ai-automation/development-workflows.md
+    - Infrastructure:
+      - Overview: tech/infrastructure/overview.md
+      - CI/CD Pipeline: tech/infrastructure/ci-cd-pipeline.md
+      - Docker Strategy: tech/infrastructure/docker-strategy.md
+      - Deployment Process: tech/infrastructure/deployment-process.md
+      - Orchestration Guide: tech/infrastructure/orchestration-guide.md
+      - Server Configuration: tech/infrastructure/server-configuration.md
+    - Cheatsheets:
+      - Docker: tech/cheatsheets/docker.md
+      - PostgreSQL: tech/cheatsheets/postgresql.md
+      - Loading JSON into Postgres: tech/cheatsheets/postgres-data.md
+      - Regex: tech/cheatsheets/regex.md
+      - Bash Profile: tech/cheatsheets/bash-profile.md
+      - macOS Tips: tech/cheatsheets/macos-tips.md
+      - HTML: tech/cheatsheets/html-cheatsheet.md
+      - VSCode Snippets: tech/cheatsheets/vscode-snippets.md
+      - SEO: tech/cheatsheets/seo.md
+      - Webhooks: tech/cheatsheets/webhook.md
+      - Secrets Management (SOPS): tech/cheatsheets/secrets-management-sops.md
+    - Reference:
+      - Session Recaps: tech/reference/session-recaps.md
+      - Today I Learned: tech/reference/today-i-learned.md
+      - Mental Models: tech/reference/mental-models.md
+      - Awesome List: tech/reference/awesome-list.md
+
+  - Business:
+    - Hiring: business/hiring.md
+    - Management: business/management.md
+    - Sales: business/sales.md
+    - Marketing: business/marketing.md
+    - Fundraising: business/fundraising.md
+    - Startup Resources: business/resources.md
+
+  - Philosophy:
+    - Ethics: philosophy/ethics.md
+    - Buddhism: philosophy/buddhism.md
+    - Stoicism: philosophy/stoicism.md
+    - Desire: philosophy/desire.md
+
+  - People:
+    - Overview: people/index.md
+    - Lee Kuan Yew: people/lee-kuan-yew.md
+    - Jensen Huang: people/jensen-huang.md
+    - Elon Musk: people/elon-musk.md
+    - Marlon Brando: people/marlon-brando.md
+    - Nelson Mandela: people/nelson-mandela.md
+
+  - Personal Development:
+    - Business: personal-development/business.md
+    - Life: personal-development/life.md
+    - Leadership: personal-development/leadership.md
+    - Learning: personal-development/learning.md
+
+  - Science & Nature:
+    - Space: science-nature/space.md
+    - Soil Health: science-nature/soil.md
+    - Trees: science-nature/trees.md
+    - Zoology: science-nature/zoology.md
+    - Pyrolysis: science-nature/pyrolysis.md
+    - Physics: science-nature/physics.md
+    - Mathematics: science-nature/mathematics.md
+
+  - Arts & Culture:
+    - Music: arts-culture/music.md
+    - Chess: arts-culture/chess.md
+    - Climbing: arts-culture/climbing.md
+    - Languages: arts-culture/languages.md
+    - Writing: arts-culture/writing.md
+    - Public Speaking: arts-culture/public-speaking.md
+
+  - Mind & Body:
+    - Meditation: mind-body/meditation.md
+    - Consciousness: mind-body/consciousness.md
+    - Relationships: mind-body/relationships.md
+    - Mimetic Theory: mind-body/mimetic-theory.md
+
+  - Courses:
+    - AI Engineering:
+      - Course Overview: courses/ai-engineering/index.md
+      - Full Syllabus: courses/ai-engineering/syllabus.md
+      - Foundations (Week 0-1): courses/ai-engineering/foundations.md
+      - Core Applications (Week 2-3): courses/ai-engineering/core-applications.md
+      - Advanced Techniques (Week 4-5): courses/ai-engineering/advanced-techniques.md
+      - Capstone & Advanced (Week 6-7): courses/ai-engineering/capstone-advanced.md
+    - Mindfulness: courses/mindfulness.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/zaylegend
+    - icon: fontawesome/brands/github
+      link: https://github.com/yetog

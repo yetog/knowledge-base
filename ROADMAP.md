@@ -24,7 +24,7 @@ The site is served by nginx at `https://zaylegend.com/knowledge-base/`. The depl
 
 ---
 
-## Phase 2 — Migrate to Markdown (MkDocs Material)
+## Phase 2 — Migrate to Markdown (MkDocs Material) ✅ Complete
 
 **Goal:** Write content in plain Markdown. One file = one page. No HTML editing required.
 
@@ -175,7 +175,7 @@ knowledge-base/
 
 ---
 
-## Phase 3 — Updated Deploy Pipeline
+## Phase 3 — Updated Deploy Pipeline ✅ Complete
 
 **Goal:** Replace the current `git pull` on the server with a proper build-then-deploy step.
 
