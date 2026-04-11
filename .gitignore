@@ -1,2 +1,17 @@
 node_modules/
 .env
+
+# macOS artifacts
+.DS_Store
+**/.DS_Store
+
+# Editor backup files
+*.html.bak
+*.bak
+
+# MkDocs build output (Phase 2)
+site/
+
+# Python virtualenv (Phase 2)
+venv/
+.venv/
