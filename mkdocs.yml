@@ -87,6 +87,12 @@ nav:
       - SEO: tech/cheatsheets/seo.md
       - Webhooks: tech/cheatsheets/webhook.md
       - Secrets Management (SOPS): tech/cheatsheets/secrets-management-sops.md
+    - AI Prompts:
+      - Overview: tech/ai-prompts/index.md
+      - Prompt Engineering: tech/ai-prompts/prompt-engineering.md
+      - MidJourney Guide: tech/ai-prompts/midjourney-guide.md
+      - MidJourney Keywords: tech/ai-prompts/midjourney-keywords.md
+      - Creative & Utility Prompts: tech/ai-prompts/creative-prompts.md
     - Reference:
       - Session Recaps: tech/reference/session-recaps.md
       - Today I Learned: tech/reference/today-i-learned.md
@@ -145,6 +151,18 @@ nav:
     - Mimetic Theory: mind-body/mimetic-theory.md
 
   - Courses:
+    - GMAT:
+      - Overview: courses/gmat/index.md
+    - Coding Bootcamp:
+      - Overview: courses/coding-bootcamp/index.md
+      - Java Fundamentals: courses/coding-bootcamp/java-fundamentals.md
+      - Java Advanced: courses/coding-bootcamp/java-advanced.md
+      - Cloud Computing: courses/coding-bootcamp/cloud-computing.md
+      - Web Fundamentals: courses/coding-bootcamp/web-fundamentals.md
+      - Coding Principles: courses/coding-bootcamp/coding-principles.md
+    - Processing (Generative Art):
+      - Overview: courses/processing/index.md
+      - Projects: courses/processing/projects.md
     - AI Engineering:
       - Course Overview: courses/ai-engineering/index.md
       - Full Syllabus: courses/ai-engineering/syllabus.md
