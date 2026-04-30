@@ -1,3 +1,9 @@
+---
+tags:
+  - cheatsheet
+  - reference
+---
+
 # PostgreSQL cheatsheet
 
 Useful cheatsheet for PostgreSQL

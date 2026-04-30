@@ -1,3 +1,9 @@
+---
+tags:
+  - science
+  - nature
+---
+
 # Pyrolysis
 
 > Disclosure/Foreword: My family recently started a company called Eneform to find a commercially viable solution to waste tires. I use some of their data in this article.

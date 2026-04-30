@@ -1,3 +1,9 @@
+---
+tags:
+  - infrastructure
+  - tech
+---
+
 # Portfolio Infrastructure Overview
 
 ## 🏗️ Architecture Summary

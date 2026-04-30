@@ -1,3 +1,9 @@
+---
+tags:
+  - infrastructure
+  - tech
+---
+
 # Docker Containerization Strategy
 
 ## 🐳 Container Architecture Overview

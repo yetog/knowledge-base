@@ -1,3 +1,9 @@
+---
+tags:
+  - cheatsheet
+  - reference
+---
+
 # HTML Cheatsheet
 
 ## Document

@@ -1,3 +1,10 @@
+---
+tags:
+  - ai
+  - course
+  - learning
+---
+
 # Core Applications (Week 2-3)
 
 ## Overview

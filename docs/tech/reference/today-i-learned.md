@@ -1,3 +1,9 @@
+---
+tags:
+  - tech
+  - reference
+---
+
 # Today I Learned
 
 A collection of quick tips that I learn, undeserving of a full page write up.

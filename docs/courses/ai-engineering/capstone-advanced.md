@@ -1,3 +1,10 @@
+---
+tags:
+  - ai
+  - course
+  - learning
+---
+
 # Capstone & Advanced (Week 6-7)
 
 ## Overview

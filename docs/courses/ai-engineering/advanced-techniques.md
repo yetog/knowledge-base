@@ -1,3 +1,10 @@
+---
+tags:
+  - ai
+  - course
+  - learning
+---
+
 # Advanced Techniques (Week 4-5)
 
 ## Overview

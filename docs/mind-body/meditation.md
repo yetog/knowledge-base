@@ -1,3 +1,9 @@
+---
+tags:
+  - mind
+  - productivity
+---
+
 # Meditation
 
 ## Obstacles to meditation

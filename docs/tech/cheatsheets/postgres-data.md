@@ -1,3 +1,9 @@
+---
+tags:
+  - cheatsheet
+  - reference
+---
+
 # Loading JSON into Postgres
 
 Today I had to load some JSON data into Postgres.

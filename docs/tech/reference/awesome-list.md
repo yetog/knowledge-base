@@ -1,3 +1,9 @@
+---
+tags:
+  - reference
+  - tech
+---
+
 # Awesome List
 
 A list of tools and resources.

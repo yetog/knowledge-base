@@ -1,3 +1,9 @@
+---
+tags:
+  - philosophy
+  - productivity
+---
+
 # Stoicism
 
 > WARNING: This is still in draft

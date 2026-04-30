@@ -1,3 +1,9 @@
+---
+tags:
+  - arts
+  - writing
+---
+
 # Writing
 
 ## Nuts and bolts

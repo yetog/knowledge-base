@@ -1,3 +1,9 @@
+---
+tags:
+  - cheatsheet
+  - reference
+---
+
 # MacOS tips
 
 ## Setting up networking profiles

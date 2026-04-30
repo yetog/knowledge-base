@@ -1,3 +1,8 @@
+---
+tags:
+  - philosophy
+---
+
 # Ethics
 
 > Status: DRAFT

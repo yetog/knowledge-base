@@ -1,3 +1,9 @@
+---
+tags:
+  - infrastructure
+  - tech
+---
+
 # Server Configuration Documentation
 
 ## 🖥️ Server Infrastructure Overview

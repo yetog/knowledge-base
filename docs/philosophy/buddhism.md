@@ -1,3 +1,9 @@
+---
+tags:
+  - philosophy
+  - mind
+---
+
 # Buddhism
 
 ## Introduction

@@ -1,3 +1,9 @@
+---
+tags:
+  - people
+  - arts
+---
+
 # Marlon Brando
 
 The man who came back down from the mountain of fame to tell us that there is nothing there\*

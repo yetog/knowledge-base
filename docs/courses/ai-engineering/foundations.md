@@ -1,3 +1,10 @@
+---
+tags:
+  - ai
+  - course
+  - learning
+---
+
 # AI Engineering Foundations (Week 0-1)
 
 ## Course Introduction & Setup

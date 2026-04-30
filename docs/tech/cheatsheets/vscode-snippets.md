@@ -1,3 +1,9 @@
+---
+tags:
+  - cheatsheet
+  - reference
+---
+
 # VSCode Snippets
 
 Coding involves a lot of repetitive typing. Luckily most code editors provides shortcuts, commonly called `snippets`. For example, DBeaver and Eclipse have [templates  (opens new window)](https://github.com/dbeaver/dbeaver/wiki/SQL-Templates), but my preference is to keep all my snippets and templates in VSCode so that I have a single, universal tool.

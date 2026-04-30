@@ -1,3 +1,10 @@
+---
+tags:
+  - ai
+  - tech
+  - productivity
+---
+
 # Development Workflows
 
 Complete guides for application integration, CI/CD deployment, and portfolio management workflows based on production implementations.

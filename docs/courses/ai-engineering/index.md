@@ -1,3 +1,10 @@
+---
+tags:
+  - ai
+  - course
+  - learning
+---
+
 # AI Engineer Course: Hugging Face + IONOS + ElevenLabs + n8n
 
 ## 🚀 Welcome to the Complete AI Engineer Bootcamp

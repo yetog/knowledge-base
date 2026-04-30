@@ -1,3 +1,9 @@
+---
+tags:
+  - people
+  - reference
+---
+
 # People
 
 People worth knowing

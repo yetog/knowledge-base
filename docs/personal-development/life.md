@@ -1,3 +1,9 @@
+---
+tags:
+  - productivity
+  - philosophy
+---
+
 # Life
 
 Decision making framework for life events

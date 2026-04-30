@@ -1,3 +1,10 @@
+---
+tags:
+  - arts
+  - writing
+  - productivity
+---
+
 # Public Speaking
 
 ## How to start

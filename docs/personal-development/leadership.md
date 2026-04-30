@@ -1,3 +1,9 @@
+---
+tags:
+  - productivity
+  - business
+---
+
 # Leadership
 
 ## Level 1: Highly capable individual

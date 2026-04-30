@@ -1,3 +1,10 @@
+---
+tags:
+  - tech
+  - ai
+  - reference
+---
+
 # Session Recaps
 
 Detailed documentation and analysis of development sessions, featuring comprehensive problem-solving methodologies, technical achievements, and lessons learned from real-world implementation projects.

@@ -1,3 +1,8 @@
+---
+tags:
+  - mind
+---
+
 # Relationships
 
 Some interesting insights about friendships.

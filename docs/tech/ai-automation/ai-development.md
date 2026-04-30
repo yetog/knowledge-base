@@ -1,3 +1,9 @@
+---
+tags:
+  - ai
+  - tech
+---
+
 # AI Development
 
 A comprehensive guide to integrating AI technologies into web applications, based on real-world implementations and production deployments.

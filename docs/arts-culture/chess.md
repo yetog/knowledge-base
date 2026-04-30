@@ -1,3 +1,9 @@
+---
+tags:
+  - arts
+  - games
+---
+
 # Chess
 
 ## Tips

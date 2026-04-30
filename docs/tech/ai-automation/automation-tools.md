@@ -1,3 +1,10 @@
+---
+tags:
+  - ai
+  - tech
+  - productivity
+---
+
 # Automation Tools
 
 Production-ready deployment scripts and automation tools for managing containerized portfolio applications. These tools streamline the deployment process and ensure consistent, reliable application management.

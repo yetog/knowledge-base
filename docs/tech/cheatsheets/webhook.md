@@ -1,3 +1,10 @@
+---
+tags:
+  - cheatsheet
+  - reference
+  - tech
+---
+
 # 404
 
 > Looks like we've got some broken links.

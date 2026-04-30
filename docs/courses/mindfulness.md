@@ -1,3 +1,10 @@
+---
+tags:
+  - mind
+  - course
+  - learning
+---
+
 # Mindfulness Course
 
 A structured 6-lesson course in mindfulness and meditation, designed for practical application in daily life. Each lesson is designed to be completed in 5 minutes and includes key concepts, practice exercises, and actionable insights.

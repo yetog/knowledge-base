@@ -1,3 +1,9 @@
+---
+tags:
+  - infrastructure
+  - cheatsheet
+---
+
 # Secrets management - SOPS
 
 Want to store your sensitive secrets in your git repository? Use Mozilla [SOPS  (opens new window)](https://github.com/mozilla/sops).

@@ -1,3 +1,9 @@
+---
+tags:
+  - business
+  - startups
+---
+
 # Fundraising
 
 ## SAFE / Convertible notes

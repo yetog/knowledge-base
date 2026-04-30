@@ -1,3 +1,9 @@
+---
+tags:
+  - business
+  - productivity
+---
+
 # Hiring
 
 ## Tech

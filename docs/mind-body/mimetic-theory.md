@@ -1,3 +1,9 @@
+---
+tags:
+  - philosophy
+  - mind
+---
+
 # Mimetic Theory
 
 A theory by Rene Girard, which is based on the tendency of human beings to subconsciously imitate (mime) others. Our desires are victim to this phenomenon: we only desire things because we notice that someone else desires it too.

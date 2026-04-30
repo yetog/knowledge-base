@@ -1,3 +1,9 @@
+---
+tags:
+  - productivity
+  - reference
+---
+
 # Mental Models
 
 ## Design

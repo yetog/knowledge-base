@@ -1,3 +1,8 @@
+---
+tags:
+  - people
+---
+
 # Lee Kuan Yew
 
 WARNING

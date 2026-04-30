@@ -39,6 +39,8 @@ theme:
 
 plugins:
   - search
+  - tags:
+      tags_file: tags.md
 
 markdown_extensions:
   - admonition
@@ -59,6 +61,7 @@ markdown_extensions:
 
 nav:
   - Home: index.md
+  - Tags: tags.md
 
   - Tech:
     - AI & Automation:
@@ -91,12 +94,12 @@ nav:
       - Awesome List: tech/reference/awesome-list.md
 
   - Business:
+    - Startup Playbook: business/playbook.md
     - Hiring: business/hiring.md
     - Management: business/management.md
     - Sales: business/sales.md
     - Marketing: business/marketing.md
     - Fundraising: business/fundraising.md
-    - Startup Resources: business/resources.md
 
   - Philosophy:
     - Ethics: philosophy/ethics.md
@@ -113,7 +116,6 @@ nav:
     - Nelson Mandela: people/nelson-mandela.md
 
   - Personal Development:
-    - Business: personal-development/business.md
     - Life: personal-development/life.md
     - Leadership: personal-development/leadership.md
     - Learning: personal-development/learning.md
@@ -149,6 +151,35 @@ nav:
       - Core Applications (Week 2-3): courses/ai-engineering/core-applications.md
       - Advanced Techniques (Week 4-5): courses/ai-engineering/advanced-techniques.md
       - Capstone & Advanced (Week 6-7): courses/ai-engineering/capstone-advanced.md
+    - CS50 AI:
+      - Week 0 - Search:
+        - Notes: courses/cs50-ai/0-search.md
+        - Quiz: courses/cs50-ai/0-search-quiz.md
+        - Projects: courses/cs50-ai/0-search-projects.md
+      - Week 1 - Knowledge:
+        - Notes: courses/cs50-ai/1-knowledge.md
+        - Quiz: courses/cs50-ai/1-knowledge-quiz.md
+        - Projects: courses/cs50-ai/1-knowledge-projects.md
+      - Week 2 - Uncertainty:
+        - Notes: courses/cs50-ai/2-uncertainty.md
+        - Quiz: courses/cs50-ai/2-uncertainty-quiz.md
+        - Projects: courses/cs50-ai/2-uncertainty-projects.md
+      - Week 3 - Optimization:
+        - Notes: courses/cs50-ai/3-optimization.md
+        - Quiz: courses/cs50-ai/3-optimization-quiz.md
+        - Projects: courses/cs50-ai/3-optimization-projects.md
+      - Week 4 - Learning:
+        - Notes: courses/cs50-ai/4-learning.md
+        - Quiz: courses/cs50-ai/4-learning-quiz.md
+        - Projects: courses/cs50-ai/4-learning-projects.md
+      - Week 5 - Neural Networks:
+        - Notes: courses/cs50-ai/5-neural-networks.md
+        - Quiz: courses/cs50-ai/5-neural-networks-quiz.md
+        - Projects: courses/cs50-ai/5-neural-networks-projects.md
+      - Week 6 - Language:
+        - Notes: courses/cs50-ai/6-language.md
+        - Quiz: courses/cs50-ai/6-language-quiz.md
+        - Projects: courses/cs50-ai/6-language-projects.md
     - Mindfulness: courses/mindfulness.md
 
 extra:

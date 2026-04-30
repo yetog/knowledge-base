@@ -1,3 +1,10 @@
+---
+tags:
+  - people
+  - tech
+  - ai
+---
+
 # Jensen Huang
 
 Discussion: https://news.ycombinator.com/item?id=37486882

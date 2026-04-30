@@ -1,3 +1,9 @@
+---
+tags:
+  - philosophy
+  - mind
+---
+
 # Desire
 
 ## Why you're unhappy

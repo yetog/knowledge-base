@@ -1,3 +1,10 @@
+---
+tags:
+  - cheatsheet
+  - reference
+  - business
+---
+
 # SEO Cheatsheet
 
 > Warning: don't use this site as a shining example of SEO.

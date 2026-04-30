@@ -1,3 +1,10 @@
+---
+tags:
+  - people
+  - business
+  - startups
+---
+
 # Elon Musk
 
 ### The algorithm

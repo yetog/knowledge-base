@@ -1,3 +1,9 @@
+---
+tags:
+  - cheatsheet
+  - reference
+---
+
 # MacOS Bash Profile
 
 My bash profile for improving the default Terminal.

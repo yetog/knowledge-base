@@ -1,3 +1,9 @@
+---
+tags:
+  - learning
+  - productivity
+---
+
 # Learning
 
 Approaches for learning

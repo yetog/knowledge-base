@@ -1,3 +1,9 @@
+---
+tags:
+  - infrastructure
+  - tech
+---
+
 # Deployment Process Documentation
 
 ## 🚀 Deployment Overview

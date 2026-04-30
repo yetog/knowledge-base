@@ -1,3 +1,9 @@
+---
+tags:
+  - infrastructure
+  - tech
+---
+
 # Infrastructure Orchestration Guide
 
 ## 🎯 Complete System Recreation

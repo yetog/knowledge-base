@@ -1,3 +1,10 @@
+---
+tags:
+  - ai
+  - course
+  - learning
+---
+
 # AI Engineer Course Syllabus
 
 ## 7-Week Intensive Program

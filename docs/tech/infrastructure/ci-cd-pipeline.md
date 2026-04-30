@@ -1,3 +1,10 @@
+---
+tags:
+  - infrastructure
+  - tech
+  - cheatsheet
+---
+
 # CI/CD Pipeline Documentation
 
 ## 🚀 Continuous Integration & Deployment Strategy
