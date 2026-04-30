@@ -15,3 +15,6 @@ site/
 # Python virtualenv (Phase 2)
 venv/
 .venv/
+
+# Archived source files (large zips)
+archive/*.zip
