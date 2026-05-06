@@ -98,7 +98,14 @@ nav:
       - Today I Learned: tech/reference/today-i-learned.md
       - Mental Models: tech/reference/mental-models.md
       - Awesome List: tech/reference/awesome-list.md
-    - Slam OG Tech Blogs: tech/slam-og-tech-blogs/index.md
+    - Slam OG Tech Blogs:
+      - Overview: tech/slam-og-tech-blogs/index.md
+      - 2026 Posts: tech/slam-og-tech-blogs/2026.md
+      - 2025 Posts: tech/slam-og-tech-blogs/2025.md
+      - 2024 Posts: tech/slam-og-tech-blogs/2024.md
+      - 2023 Posts: tech/slam-og-tech-blogs/2023.md
+      - 2022 Posts: tech/slam-og-tech-blogs/2022.md
+      - Flipboard Fridays: tech/slam-og-tech-blogs/flipboard-fridays.md
 
   - Business:
     - Startup Playbook: business/playbook.md
