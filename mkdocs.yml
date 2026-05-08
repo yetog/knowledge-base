@@ -187,6 +187,11 @@ nav:
       - ACID, CAP, BASE: courses/system-design/acid-cap-base.md
       - Database Sharding: courses/system-design/database-sharding.md
       - Object Storage: courses/system-design/object-storage.md
+      - Cookies, Sessions, Tokens: courses/system-design/cookies-sessions-tokens.md
+      - OAuth 2.0 & JWT: courses/system-design/oauth-jwt.md
+      - HTTPS, SSL & Encryption: courses/system-design/https-ssl-encryption.md
+      - REST API Design: courses/system-design/rest-api.md
+      - API Styles Compared: courses/system-design/api-styles-compared.md
     - AI Engineering:
       - Course Overview: courses/ai-engineering/index.md
       - Full Syllabus: courses/ai-engineering/syllabus.md

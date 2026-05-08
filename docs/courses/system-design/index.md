@@ -50,7 +50,26 @@ The ~15 things every backend engineer should be able to explain in their sleep. 
 - [Database Sharding](database-sharding.md) — *When one DB isn't enough, split it — carefully. You don't get to undo this.*
 - [Object Storage](object-storage.md) — *Cheap, durable, infinite — and the wrong tool for half the things people use it for.*
 
-**Foundation tier complete.** Next: the patterns tier (auth, API design, distributed patterns, cloud/infra).
+**Foundation tier complete.**
+
+---
+
+## Patterns tier
+
+The composable building blocks — auth, API design, distributed coordination, cloud infrastructure.
+
+**Auth & security**
+
+- [Cookies, Sessions, and Tokens](cookies-sessions-tokens.md) — *Three ways to remember who you are. Pick by who holds the state.*
+- [OAuth 2.0 and JWT](oauth-jwt.md) — *Delegation plus signed receipts. One app acting for a user, with proof.*
+- [HTTPS, SSL/TLS, and Encryption](https-ssl-encryption.md) — *Identity and secrecy, agreed in one handshake.*
+
+**API design**
+
+- [REST API Design & Authentication](rest-api.md) — *REST isn't a spec, it's a vibe. Predictable conventions are the product.*
+- [API Styles Compared](api-styles-compared.md) — *Different tools for different conversations. Match the style to the call pattern, not the hype.*
+
+*Next: GraphQL, gRPC, webhooks, API gateway, then distributed patterns + cloud/infra.*
 
 ---
 
