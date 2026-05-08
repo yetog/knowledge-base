@@ -81,7 +81,14 @@ The composable building blocks — auth, API design, distributed coordination, c
 - [Distributed System Patterns](distributed-patterns.md) — *Survival tools for the chaos. Distributed systems lie — these patterns are how you survive the lies.*
 - [Observability — Logs, Metrics, Traces](observability.md) — *Three pillars turn 'it's broken' into 'here's why' — without SSH-ing into 30 boxes.*
 
-*Next: cloud + infra (Docker, Kubernetes, cloud-native, CI/CD).*
+**Cloud & infrastructure**
+
+- [Containers & Docker](containers-docker.md) — *Package the app and its world. Same image, anywhere.*
+- [Kubernetes](kubernetes.md) — *Declarative orchestration. You describe the cluster you want; k8s makes it real.*
+- [Cloud-Native Architecture](cloud-native.md) — *Design for the cloud, not in spite of it.*
+- [CI/CD Pipelines](ci-cd.md) — *Small changes, automated safety, ship daily. The big-batch release is dead for a reason.*
+
+**Patterns tier complete.** Next: real systems case studies.
 
 ---
 

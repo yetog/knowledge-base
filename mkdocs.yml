@@ -201,6 +201,10 @@ nav:
       - Event Sourcing: courses/system-design/event-sourcing.md
       - Distributed Patterns: courses/system-design/distributed-patterns.md
       - Observability: courses/system-design/observability.md
+      - Containers & Docker: courses/system-design/containers-docker.md
+      - Kubernetes: courses/system-design/kubernetes.md
+      - Cloud-Native Architecture: courses/system-design/cloud-native.md
+      - CI/CD Pipelines: courses/system-design/ci-cd.md
     - AI Engineering:
       - Course Overview: courses/ai-engineering/index.md
       - Full Syllabus: courses/ai-engineering/syllabus.md
