@@ -36,15 +36,26 @@ The five things every cloud engineer should know cold before specializing.
 
 ---
 
-## Patterns tier *(coming next)*
+## Patterns tier
 
-Serverless & FaaS · Edge Computing · Managed Database Services · AI/ML Cloud Services
+Cloud-services-specific patterns — what's unique to running things on AWS / Azure / GCP.
+
+- [Serverless & FaaS](serverless.md) — *Stop running servers. Bring code, leave operations.*
+- [Edge Computing](edge-computing.md) — *Push the code closer to the user, not just the content.*
+- [Managed Database Services](managed-databases.md) — *Trade money for time. At most company sizes that's the right trade.*
+- [AI/ML Cloud Services](cloud-ai-services.md) — *Stop training. Start calling. The API is the new architecture primitive.*
 
 ---
 
-## Real systems tier *(coming next)*
+## Real systems tier
 
-Cost Management & FinOps · Multi-cloud & Hybrid Strategies · Cloud Migration Patterns
+Strategy and operating reality — the topics that decide whether the cloud saves you money or eats you alive.
+
+- [Cloud Cost Management & FinOps](cloud-cost-management.md) — *The surprise bill is a feature, not a bug.*
+- [Multi-cloud & Hybrid Strategies](multi-cloud-hybrid.md) — *Multi-cloud is what you say in board meetings. Single-cloud is what you ship in production.*
+- [Cloud Migration Patterns (the 6 R's)](cloud-migration.md) — *Lift-and-shift is one of six options — pick the wrong R and you'll waste years.*
+
+**All 12 topics complete.** 🎉
 
 ---
 

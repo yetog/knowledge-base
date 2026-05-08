@@ -177,6 +177,13 @@ nav:
       - Identity & Access Management: courses/cloud-computing/cloud-iam.md
       - Cloud Storage Services: courses/cloud-computing/cloud-storage-services.md
       - Shared Responsibility & Security: courses/cloud-computing/cloud-security-shared-responsibility.md
+      - Serverless & FaaS: courses/cloud-computing/serverless.md
+      - Edge Computing: courses/cloud-computing/edge-computing.md
+      - Managed Database Services: courses/cloud-computing/managed-databases.md
+      - AI/ML Cloud Services: courses/cloud-computing/cloud-ai-services.md
+      - Cost Management & FinOps: courses/cloud-computing/cloud-cost-management.md
+      - Multi-cloud & Hybrid: courses/cloud-computing/multi-cloud-hybrid.md
+      - Cloud Migration (6 R's): courses/cloud-computing/cloud-migration.md
     - System Design (SLAM OG):
       - Overview: courses/system-design/index.md
       - Networking Fundamentals: courses/system-design/networking-fundamentals.md
