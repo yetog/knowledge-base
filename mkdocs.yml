@@ -196,6 +196,11 @@ nav:
       - gRPC Deep Dive: courses/system-design/grpc.md
       - Webhooks: courses/system-design/webhooks.md
       - API Gateway: courses/system-design/api-gateway.md
+      - Microservices: courses/system-design/microservices.md
+      - Message Queues: courses/system-design/message-queues.md
+      - Event Sourcing: courses/system-design/event-sourcing.md
+      - Distributed Patterns: courses/system-design/distributed-patterns.md
+      - Observability: courses/system-design/observability.md
     - AI Engineering:
       - Course Overview: courses/ai-engineering/index.md
       - Full Syllabus: courses/ai-engineering/syllabus.md

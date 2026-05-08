@@ -73,7 +73,15 @@ The composable building blocks — auth, API design, distributed coordination, c
 - [Webhooks vs Polling](webhooks.md) — *Stop asking. Get called back.*
 - [API Gateway](api-gateway.md) — *One front door. Many backends. Cross-cutting concerns handled once.*
 
-*Next: distributed patterns (microservices, message queues, event sourcing, observability) and cloud/infra (Docker, k8s, cloud-native, CI/CD).*
+**Distributed patterns**
+
+- [Microservices Architecture](microservices.md) — *An org problem, not a tech problem. Don't take the trade until you have the problem.*
+- [Message Queues & Brokers](message-queues.md) — *Drop the message, walk away. The broker delivers — eventually.*
+- [Event Sourcing & Event-Driven Architecture](event-sourcing.md) — *Don't store what is. Store what happened. State becomes a function of history.*
+- [Distributed System Patterns](distributed-patterns.md) — *Survival tools for the chaos. Distributed systems lie — these patterns are how you survive the lies.*
+- [Observability — Logs, Metrics, Traces](observability.md) — *Three pillars turn 'it's broken' into 'here's why' — without SSH-ing into 30 boxes.*
+
+*Next: cloud + infra (Docker, Kubernetes, cloud-native, CI/CD).*
 
 ---
 
