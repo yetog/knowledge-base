@@ -68,8 +68,12 @@ The composable building blocks — auth, API design, distributed coordination, c
 
 - [REST API Design & Authentication](rest-api.md) — *REST isn't a spec, it's a vibe. Predictable conventions are the product.*
 - [API Styles Compared](api-styles-compared.md) — *Different tools for different conversations. Match the style to the call pattern, not the hype.*
+- [GraphQL Deep Dive](graphql.md) — *Ask for exactly what you need. Get exactly that. One round trip.*
+- [gRPC Deep Dive](grpc.md) — *HTTP/2 plus Protobuf plus codegen. The trifecta that owns the data center.*
+- [Webhooks vs Polling](webhooks.md) — *Stop asking. Get called back.*
+- [API Gateway](api-gateway.md) — *One front door. Many backends. Cross-cutting concerns handled once.*
 
-*Next: GraphQL, gRPC, webhooks, API gateway, then distributed patterns + cloud/infra.*
+*Next: distributed patterns (microservices, message queues, event sourcing, observability) and cloud/infra (Docker, k8s, cloud-native, CI/CD).*
 
 ---
 

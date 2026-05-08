@@ -192,6 +192,10 @@ nav:
       - HTTPS, SSL & Encryption: courses/system-design/https-ssl-encryption.md
       - REST API Design: courses/system-design/rest-api.md
       - API Styles Compared: courses/system-design/api-styles-compared.md
+      - GraphQL Deep Dive: courses/system-design/graphql.md
+      - gRPC Deep Dive: courses/system-design/grpc.md
+      - Webhooks: courses/system-design/webhooks.md
+      - API Gateway: courses/system-design/api-gateway.md
     - AI Engineering:
       - Course Overview: courses/ai-engineering/index.md
       - Full Syllabus: courses/ai-engineering/syllabus.md
