@@ -24,11 +24,21 @@ The same content powers the **SLAM OG System Design app** — one source, two co
 
 ## Foundation tier
 
-The ~12 things every backend engineer should be able to explain in their sleep.
+The ~15 things every backend engineer should be able to explain in their sleep. The order matters — networking before load balancers, caching before CDNs, SQL before sharding.
+
+**Networking & protocols**
+
+- [Networking Fundamentals](networking-fundamentals.md) — *The internet is just envelopes inside envelopes. Learn the stack, see the system.*
+- [HTTP Fundamentals](http-fundamentals.md) — *The vocabulary of the web. Verbs, codes, and headers — that's the whole game.*
+- [URLs, URIs, URNs](urls-uris-urns.md) — *Everyone uses these three letters wrong. Here's the actual hierarchy.*
+- [DNS & Internet Traffic Routing](dns-routing.md) — *DNS is the phonebook for the internet — except no one's in charge, and somehow it still works.*
+- [Latency Numbers Every Engineer Should Know](latency-numbers.md) — *L1 cache: 0.5ns. Cross-continent: 150ms. Same factor that makes your code fast or slow.*
+
+**Speed & distribution layer**
 
 - [Load Balancers](load-balancers.md) — *Traffic cop for your servers. No load balancer, no scale.*
 
-*More foundation topics ship as we expand the pilot — caching, CDNs, databases, replication, sharding, consistency.*
+*More foundation topics ship in the next batches — proxy/CDN, caching, Redis, then the data layer (SQL, database types, ACID/CAP, sharding, object storage).*
 
 ---
 

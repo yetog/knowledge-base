@@ -172,6 +172,11 @@ nav:
       - Projects: courses/processing/projects.md
     - System Design (SLAM OG):
       - Overview: courses/system-design/index.md
+      - Networking Fundamentals: courses/system-design/networking-fundamentals.md
+      - HTTP Fundamentals: courses/system-design/http-fundamentals.md
+      - URLs, URIs, URNs: courses/system-design/urls-uris-urns.md
+      - DNS & Routing: courses/system-design/dns-routing.md
+      - Latency Numbers: courses/system-design/latency-numbers.md
       - Load Balancers: courses/system-design/load-balancers.md
     - AI Engineering:
       - Course Overview: courses/ai-engineering/index.md
