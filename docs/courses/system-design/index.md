@@ -88,7 +88,25 @@ The composable building blocks — auth, API design, distributed coordination, c
 - [Cloud-Native Architecture](cloud-native.md) — *Design for the cloud, not in spite of it.*
 - [CI/CD Pipelines](ci-cd.md) — *Small changes, automated safety, ship daily. The big-batch release is dead for a reason.*
 
-**Patterns tier complete.** Next: real systems case studies.
+**Patterns tier complete.**
+
+---
+
+## Real systems tier
+
+Case studies of how real companies built their architectures. Where the gamification gets fun in the SLAM OG app — *"design X"* challenges, *"why did they pick Y?"* deep dives.
+
+- [Case: Netflix Architecture](case-netflix.md) — *The company that taught the cloud how to fail well.*
+- [Case: Uber Architecture](case-uber.md) — *Real-time matching at planet scale.*
+- [Case: Twitter Architecture](case-twitter.md) — *The fan-out problem solved hybrid push/pull.*
+- [Case: Slack Architecture](case-slack.md) — *The notification decision tree is the product.*
+- [Case: Discord — Trillions of Messages](case-discord.md) — *They picked the right database family — eventually.*
+- [Case: Stack Overflow Architecture](case-stack-overflow.md) — *1.3B pageviews/month from 9 servers, no microservices.*
+- [Case: Payment Systems Architecture](case-payments.md) — *Money plus distributed systems is the hardest problem in tech.*
+- [Case: Scaling a Web App to Millions](case-scaling-millions.md) — *From one box to a million users, in seven steps.*
+- [Case: Amazon Brazil Build System](case-amazon-brazil.md) — *Build determinism is the foundation under everything.*
+
+**All 41 topics complete.** 🎉
 
 ---
 

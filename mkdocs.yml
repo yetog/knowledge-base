@@ -205,6 +205,15 @@ nav:
       - Kubernetes: courses/system-design/kubernetes.md
       - Cloud-Native Architecture: courses/system-design/cloud-native.md
       - CI/CD Pipelines: courses/system-design/ci-cd.md
+      - 'Case: Netflix': courses/system-design/case-netflix.md
+      - 'Case: Uber': courses/system-design/case-uber.md
+      - 'Case: Twitter': courses/system-design/case-twitter.md
+      - 'Case: Slack': courses/system-design/case-slack.md
+      - 'Case: Discord': courses/system-design/case-discord.md
+      - 'Case: Stack Overflow': courses/system-design/case-stack-overflow.md
+      - 'Case: Payment Systems': courses/system-design/case-payments.md
+      - 'Case: Scaling to Millions': courses/system-design/case-scaling-millions.md
+      - 'Case: Amazon Brazil': courses/system-design/case-amazon-brazil.md
     - AI Engineering:
       - Course Overview: courses/ai-engineering/index.md
       - Full Syllabus: courses/ai-engineering/syllabus.md
