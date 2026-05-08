@@ -170,6 +170,13 @@ nav:
     - Processing (Generative Art):
       - Overview: courses/processing/index.md
       - Projects: courses/processing/projects.md
+    - Cloud Computing (SLAM OG):
+      - Overview: courses/cloud-computing/index.md
+      - Cloud Computing 101: courses/cloud-computing/cloud-computing-101.md
+      - Cloud Networking: courses/cloud-computing/cloud-networking.md
+      - Identity & Access Management: courses/cloud-computing/cloud-iam.md
+      - Cloud Storage Services: courses/cloud-computing/cloud-storage-services.md
+      - Shared Responsibility & Security: courses/cloud-computing/cloud-security-shared-responsibility.md
     - System Design (SLAM OG):
       - Overview: courses/system-design/index.md
       - Networking Fundamentals: courses/system-design/networking-fundamentals.md

@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
-"""Parse system-design topic .md files and emit content.json for the SLAM OG app.
+"""Parse SLAM OG course topic .md files and emit content.json per course.
 
-Usage: python scripts/build-content-json.py
+Usage:
+    python scripts/build-content-json.py              # all courses
+    python scripts/build-content-json.py system-design  # one course
 
-Output: docs/courses/system-design/content.json
+Output: docs/courses/{course}/content.json for each course found.
 """
 
+import argparse
 import json
 import re
 import sys
@@ -14,8 +17,10 @@ from pathlib import Path
 import yaml
 
 ROOT = Path(__file__).resolve().parent.parent
-COURSE_DIR = ROOT / "docs" / "courses" / "system-design"
-OUT_FILE = COURSE_DIR / "content.json"
+COURSES_ROOT = ROOT / "docs" / "courses"
+
+# Courses that participate in the SLAM OG app (have structured topic frontmatter)
+SLAM_OG_COURSES = ["system-design", "cloud-computing"]
 
 FRONTMATTER_RE = re.compile(r"^---\n(.*?)\n---\n", re.DOTALL)
 
@@ -30,12 +35,15 @@ def parse_md(path: Path) -> dict | None:
     return {**fm, "body_md": body, "file": str(path.relative_to(ROOT)).replace("\\", "/")}
 
 
-def main() -> None:
-    if not COURSE_DIR.exists():
-        sys.exit(f"course dir not found: {COURSE_DIR}")
+def build_course(course: str) -> bool:
+    course_dir = COURSES_ROOT / course
+    out_file = course_dir / "content.json"
+    if not course_dir.exists():
+        print(f"  skip {course}: directory not found", file=sys.stderr)
+        return False
 
     topics = []
-    for md_path in sorted(COURSE_DIR.glob("*.md")):
+    for md_path in sorted(course_dir.glob("*.md")):
         if md_path.name == "index.md":
             continue
         topic = parse_md(md_path)
@@ -48,13 +56,24 @@ def main() -> None:
         by_tier[tier] = by_tier.get(tier, 0) + 1
 
     output = {
-        "course": "system-design",
+        "course": course,
         "topic_count": len(topics),
         "by_tier": by_tier,
         "topics": topics,
     }
-    OUT_FILE.write_text(json.dumps(output, indent=2, ensure_ascii=False), encoding="utf-8")
-    print(f"wrote {OUT_FILE.relative_to(ROOT)} ({len(topics)} topics: {by_tier})")
+    out_file.write_text(json.dumps(output, indent=2, ensure_ascii=False), encoding="utf-8")
+    print(f"wrote {out_file.relative_to(ROOT)} ({len(topics)} topics: {by_tier})")
+    return True
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("course", nargs="?", help="course slug (default: all SLAM OG courses)")
+    args = parser.parse_args()
+
+    courses = [args.course] if args.course else SLAM_OG_COURSES
+    for course in courses:
+        build_course(course)
 
 
 if __name__ == "__main__":
