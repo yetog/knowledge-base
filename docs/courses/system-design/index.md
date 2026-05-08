@@ -42,7 +42,15 @@ The ~15 things every backend engineer should be able to explain in their sleep. 
 - [Caching Strategies](caching-strategies.md) — *Why ask twice? Caching is the laziness that makes systems fast.*
 - [Redis & In-Memory Data Stores](redis-in-memory-stores.md) — *RAM speed, with a knob for how much durability you can afford to lose.*
 
-*Next: the data layer (SQL, database types, ACID/CAP, sharding, object storage).*
+**Data layer**
+
+- [SQL Fundamentals](sql-fundamentals.md) — *Sixty years in, still the lingua franca of data.*
+- [Database Types (SQL, NoSQL, and Beyond)](database-types.md) — *Fit, not religion. Pick the database that matches how you read and write.*
+- [ACID, CAP, and BASE](acid-cap-base.md) — *Three acronyms decide what your database can actually promise.*
+- [Database Sharding](database-sharding.md) — *When one DB isn't enough, split it — carefully. You don't get to undo this.*
+- [Object Storage](object-storage.md) — *Cheap, durable, infinite — and the wrong tool for half the things people use it for.*
+
+**Foundation tier complete.** Next: the patterns tier (auth, API design, distributed patterns, cloud/infra).
 
 ---
 

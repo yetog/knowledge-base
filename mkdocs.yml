@@ -182,6 +182,11 @@ nav:
       - CDN: courses/system-design/cdn.md
       - Caching Strategies: courses/system-design/caching-strategies.md
       - Redis & In-Memory Stores: courses/system-design/redis-in-memory-stores.md
+      - SQL Fundamentals: courses/system-design/sql-fundamentals.md
+      - Database Types: courses/system-design/database-types.md
+      - ACID, CAP, BASE: courses/system-design/acid-cap-base.md
+      - Database Sharding: courses/system-design/database-sharding.md
+      - Object Storage: courses/system-design/object-storage.md
     - AI Engineering:
       - Course Overview: courses/ai-engineering/index.md
       - Full Syllabus: courses/ai-engineering/syllabus.md
