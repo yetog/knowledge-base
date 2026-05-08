@@ -178,6 +178,10 @@ nav:
       - DNS & Routing: courses/system-design/dns-routing.md
       - Latency Numbers: courses/system-design/latency-numbers.md
       - Load Balancers: courses/system-design/load-balancers.md
+      - Proxy vs Reverse Proxy: courses/system-design/proxy-vs-reverse-proxy.md
+      - CDN: courses/system-design/cdn.md
+      - Caching Strategies: courses/system-design/caching-strategies.md
+      - Redis & In-Memory Stores: courses/system-design/redis-in-memory-stores.md
     - AI Engineering:
       - Course Overview: courses/ai-engineering/index.md
       - Full Syllabus: courses/ai-engineering/syllabus.md

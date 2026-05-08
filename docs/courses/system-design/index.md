@@ -37,8 +37,12 @@ The ~15 things every backend engineer should be able to explain in their sleep. 
 **Speed & distribution layer**
 
 - [Load Balancers](load-balancers.md) — *Traffic cop for your servers. No load balancer, no scale.*
+- [Proxy vs Reverse Proxy](proxy-vs-reverse-proxy.md) — *A proxy hides clients. A reverse proxy hides servers. Same trick, opposite direction.*
+- [Content Delivery Network (CDN)](cdn.md) — *Move the content closer to the user. Latency drops. Origin breathes.*
+- [Caching Strategies](caching-strategies.md) — *Why ask twice? Caching is the laziness that makes systems fast.*
+- [Redis & In-Memory Data Stores](redis-in-memory-stores.md) — *RAM speed, with a knob for how much durability you can afford to lose.*
 
-*More foundation topics ship in the next batches — proxy/CDN, caching, Redis, then the data layer (SQL, database types, ACID/CAP, sharding, object storage).*
+*Next: the data layer (SQL, database types, ACID/CAP, sharding, object storage).*
 
 ---
 
