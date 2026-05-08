@@ -170,6 +170,9 @@ nav:
     - Processing (Generative Art):
       - Overview: courses/processing/index.md
       - Projects: courses/processing/projects.md
+    - System Design (SLAM OG):
+      - Overview: courses/system-design/index.md
+      - Load Balancers: courses/system-design/load-balancers.md
     - AI Engineering:
       - Course Overview: courses/ai-engineering/index.md
       - Full Syllabus: courses/ai-engineering/syllabus.md

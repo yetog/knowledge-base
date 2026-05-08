@@ -1,0 +1,70 @@
+{
+  "course": "system-design",
+  "topic_count": 1,
+  "by_tier": {
+    "foundation": 1
+  },
+  "topics": [
+    {
+      "slug": "load-balancers",
+      "title": "Load Balancers",
+      "tagline": "Traffic cop for your servers. No load balancer, no scale.",
+      "tier": "foundation",
+      "difficulty": "beginner",
+      "estimated_minutes": 8,
+      "prerequisites": [
+        "networking-basics",
+        "http-fundamentals"
+      ],
+      "related": [
+        "cdn",
+        "reverse-proxy",
+        "api-gateway",
+        "health-checks"
+      ],
+      "tags": [
+        "system-design",
+        "course",
+        "infrastructure",
+        "networking"
+      ],
+      "quiz": [
+        {
+          "q": "Main difference between L4 and L7 load balancing?",
+          "options": [
+            "L4 is faster, L7 is smarter",
+            "L7 routes by URL/headers, L4 by IP/port",
+            "They're the same thing, marketed differently",
+            "L4 only handles HTTPS, L7 handles HTTP"
+          ],
+          "answer": 1,
+          "explain": "L4 routes at the transport layer — IP and port. Fast but blind to content. L7 routes at the application layer — URL, headers, cookies. Slower per request, smarter overall. The first answer captures the vibe but not the technical distinction."
+        },
+        {
+          "q": "Your app crashes under traffic spikes. Why doesn't round-robin DNS solve it?",
+          "options": [
+            "DNS is too slow",
+            "DNS doesn't know if a server is healthy",
+            "DNS only supports four A records",
+            "It actually does solve it"
+          ],
+          "answer": 1,
+          "explain": "Round-robin DNS will happily send users to a dead server. A load balancer health-checks each backend and routes around the broken ones. That's the whole point."
+        },
+        {
+          "q": "When would you NOT need a load balancer?",
+          "options": [
+            "Single server, low traffic",
+            "Anytime you have under 1,000 users",
+            "Never — every app needs one",
+            "Only when you're not using HTTPS"
+          ],
+          "answer": 0,
+          "explain": "If you've got one box and traffic is low, a load balancer is overhead with no benefit. The moment you scale to two backends, you need one."
+        }
+      ],
+      "body_md": "# Load Balancers\n\n> Traffic cop for your servers. No load balancer, no scale.\n\n## The hook\n\nYou launched. Your app got linked on Hacker News. 50,000 people hit it in the next hour. Your one server taps out.\n\nYou can't just spin up more servers — *how* do users get routed to them? Round-robin DNS is broken (no health checks). Telling users \"click this URL on Tuesdays, that one on Thursdays\" obviously doesn't work.\n\nYou need a load balancer. It's the box that sits in front of your servers and decides who gets which one.\n\n## The concept\n\nA load balancer accepts incoming traffic, picks a backend server, and forwards the request. The user never knows which server actually answered.\n\nThree jobs:\n\n1. **Distribution** — spread traffic across servers so none gets crushed\n2. **Health checking** — stop sending traffic to dead servers\n3. **Abstraction** — your servers can change (add, remove, upgrade) without users noticing\n\nTwo flavors based on what they inspect:\n\n| Type | Layer | Routes by | Speed | Use when |\n|---|---|---|---|---|\n| **L4** | Transport (TCP/UDP) | IP, port | Fast — doesn't open the packet | Raw throughput beats smart routing |\n| **L7** | Application (HTTP) | URL, headers, cookies | Slower — parses the request | You need `/api` to one fleet and `/admin` to another |\n\nFor most web apps, **L7**. The flexibility is worth the small latency cost.\n\n## Diagram\n\n```mermaid\nflowchart LR\n    U1[User] --> LB[Load Balancer]\n    U2[User] --> LB\n    U3[User] --> LB\n    LB -.health check.-> S1\n    LB -.health check.-> S2\n    LB -.health check.-> S3\n    LB --> S1[Server 1]\n    LB --> S2[Server 2]\n    LB --> S3[Server 3 ❌]\n    style S3 stroke:#f66,stroke-dasharray:5\n```\n\nThe dashed lines are health checks. The crossed-out server is unhealthy — the LB stops routing to it until checks pass again.\n\n## Example\n\n**Netflix** uses L7 load balancers (their own + AWS ALB) to route by URL path:\n\n- `/api/movies` → catalog service\n- `/api/watch` → streaming service\n- `/api/recommendations` → ML service\n\nEach path hits a different fleet. One load balancer, many backend services. Users see one domain.\n\nThis pattern — one front door, many backends — is the foundation of microservices. The load balancer is what makes it work.\n\n## Algorithms (how it picks a server)\n\n| Algorithm | What it does | When to use |\n|---|---|---|\n| **Round-robin** | Server 1, 2, 3, 1, 2, 3... | Backends are roughly equal |\n| **Least connections** | Server with fewest active requests | Long-lived connections (WebSockets, streaming) |\n| **IP hash** | Same client → same server | Sticky sessions (avoid if you can) |\n| **Weighted** | Some servers get more traffic | Mixed hardware (the big box gets 2x) |\n\nDefault to round-robin or least connections. Don't reach for IP hash unless you can't store session state in a shared cache (Redis) — and if you can't, fix that first.\n\n## Key takeaway\n\n- **One server → no LB.** Two servers → you need one.\n- **L7 by default** for web apps. L4 only when raw speed beats routing logic.\n- **Health checks are non-negotiable** — automatic failover is the entire point.\n- **The LB itself is a single point of failure.** Production runs two LBs in active-passive or active-active.\n\n---\n\n*Quiz available in the SLAM OG app — three questions on L4 vs L7, why round-robin DNS isn't enough, and when you don't need a load balancer.*",
+      "file": "docs/courses/system-design/load-balancers.md"
+    }
+  ]
+}
