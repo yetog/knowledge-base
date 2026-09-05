@@ -44,6 +44,11 @@ plugins:
 
 markdown_extensions:
   - admonition
+  - attr_list
+  - md_in_html
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.details
   - pymdownx.superfences:
       custom_fences:
@@ -264,6 +269,13 @@ nav:
         - Notes: courses/cs50-ai/6-language.md
         - Quiz: courses/cs50-ai/6-language-quiz.md
         - Projects: courses/cs50-ai/6-language-projects.md
+    - MCP & REST APIs:
+      - Overview: courses/mcp-and-apis/index.md
+      - MCP Fundamentals: courses/mcp-and-apis/mcp-fundamentals.md
+      - Building MCP Tools: courses/mcp-and-apis/mcp-building-tools.md
+      - API Fundamentals: courses/mcp-and-apis/api-fundamentals.md
+      - Building Endpoints: courses/mcp-and-apis/api-building-endpoints.md
+      - Deployment & Security: courses/mcp-and-apis/deployment-security.md
     - Mindfulness: courses/mindfulness.md
 
 extra:
